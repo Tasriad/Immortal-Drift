@@ -3,6 +3,9 @@ extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D 
 const speed = 100  # Constant variable to define movement speed
 var current_dir = "none"
 
+func _ready():
+	$AnimatedSprite2D.play("front_idle")
+	
 # The physics process function is called every frame to handle physics-related updates
 func _physics_process(delta):  
 	player_movement(delta)  # Calls the player_movement function to handle character movement
