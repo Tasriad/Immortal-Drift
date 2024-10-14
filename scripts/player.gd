@@ -1,7 +1,7 @@
 extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D physics-based movement for the character
 var enemy_inattack_range=false
 var enemy_attack_cooldown=true
-var health=200
+var health=100
 var player_alive=true
 const speed = 100  # Constant variable to define movement speed
 var current_dir = "none"
@@ -15,6 +15,9 @@ func _physics_process(delta):
 	player_movement(delta)  # Calls the player_movement function to handle character movement
 	enemy_attack()
 	attack()
+	#add current camera here
+	update_health()
+	
 	
 	if health <=0:
 		player_alive=0 #go back to menu or respond
@@ -107,7 +110,7 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 	
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health=health-20
+		health=health-10
 		enemy_attack_cooldown=false
 		$attack_cooldown.start()
 		print("player health=",health)
@@ -137,3 +140,21 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	global.player_current_attack=false
 	attack_ip=false
+	
+func update_health():
+	var healthbar=$healthbar
+	healthbar.value=health
+	if health>=100:
+		healthbar.visible=false
+	else:
+		healthbar.visible=true
+
+
+func _on_regen_time_timeout():
+	if health<100:
+		health=health+20
+		if health>100:
+			health=100
+	if health<=0:
+		health=0
+	

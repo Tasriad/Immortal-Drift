@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckvdxo4w6p000"]
+
+[ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_hfc47"]
+[ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_g2osv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oabat"]
+texture = ExtResource("1_hfc47")
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+1:3/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+2:3/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u3v8o"]
+texture = ExtResource("2_g2osv")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lfd0m"]
+sources/0 = SubResource("TileSetAtlasSource_oabat")
+sources/1 = SubResource("TileSetAtlasSource_u3v8o")
+
+[node name="cliff_side" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_lfd0m")
+format = 2
