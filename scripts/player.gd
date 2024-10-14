@@ -1,7 +1,11 @@
 extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D physics-based movement for the character
-
+var enemy_inattack_range=false
+var enemy_attack_cooldown=true
+var health=200
+var player_alive=true
 const speed = 100  # Constant variable to define movement speed
 var current_dir = "none"
+var attack_ip=false
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -9,7 +13,14 @@ func _ready():
 # The physics process function is called every frame to handle physics-related updates
 func _physics_process(delta):  
 	player_movement(delta)  # Calls the player_movement function to handle character movement
-
+	enemy_attack()
+	attack()
+	
+	if health <=0:
+		player_alive=0 #go back to menu or respond
+		health=0
+		print("Player has been killed")
+		self.queue_free()
 # Function to handle the player's movement
 func player_movement(delta): 
 	# Check if the right movement key is pressed
@@ -57,25 +68,72 @@ func play_animation(movement):
 		if movement == 1:
 			animation.play("side_walk")  # Play walking animation
 		elif movement == 0:
-			animation.play("side_idle")  # Play idle animation
+			if attack_ip==false:
+				animation.play("side_idle")  # Play idle animation
 	
 	elif dir == "left":
 		animation.flip_h = true  # Flip sprite horizontally to face left
 		if movement == 1:
 			animation.play("side_walk")
 		elif movement == 0:
-			animation.play("side_idle")
+			if attack_ip==false:
+				animation.play("side_idle")
 	
 	elif dir == "down":
 		animation.flip_h = false
 		if movement == 1:
 			animation.play("front_walk")
 		elif movement == 0:
-			animation.play("front_idle")
+			if attack_ip==false:
+				animation.play("front_idle")
 	
 	elif dir == "up":
 		animation.flip_h = false
 		if movement == 1:
 			animation.play("back_walk")
 		elif movement == 0:
-			animation.play("back_idle")
+			if attack_ip==false:
+				animation.play("back_idle")
+func player():
+	pass
+
+func _on_player_hitbox_body_entered(body: Node2D):
+	if body.has_method("enemy"):
+		enemy_inattack_range=true
+
+func _on_player_hitbox_body_exited(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		enemy_inattack_range=false
+	
+func enemy_attack():
+	if enemy_inattack_range and enemy_attack_cooldown == true:
+		health=health-20
+		enemy_attack_cooldown=false
+		$attack_cooldown.start()
+		print("player health=",health)
+func _on_attack_cooldown_timeout():
+	enemy_attack_cooldown=true
+func attack():
+	var dir=current_dir
+	if Input.is_key_pressed(KEY_A):
+		global.player_current_attack=true
+		attack_ip=true
+		if dir == "right":
+			$AnimatedSprite2D.flip_h=false
+			$AnimatedSprite2D.play("side_attack")	 
+			$deal_attack_timer.start()
+		if dir == "left":
+			$AnimatedSprite2D.flip_h=true
+			$AnimatedSprite2D.play("side_attack")	 
+			$deal_attack_timer.start()
+		if dir == "down":
+			$AnimatedSprite2D.play("front_attack")	 
+			$deal_attack_timer.start()
+		if dir == "up":
+			$AnimatedSprite2D.play("back_attack")	 
+			$deal_attack_timer.start()
+
+func _on_deal_attack_timer_timeout():
+	$deal_attack_timer.stop()
+	global.player_current_attack=false
+	attack_ip=false
