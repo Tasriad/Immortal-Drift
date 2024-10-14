@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhkrwsuyf02sv"]
+[gd_scene load_steps=12 format=3 uid="uid://bhkrwsuyf02sv"]
 
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_p12vw"]
 [ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_yq4ml"]
 [ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_k7iw1"]
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
 [ext_resource type="PackedScene" uid="uid://c3tgn4hc2gwuv" path="res://scenes/player.tscn" id="4_befsc"]
-[ext_resource type="PackedScene" uid="uid://c3b13knqe1m5v" path="res://scenes/enemy_slime.tscn" id="5_5wqml"]
+[ext_resource type="PackedScene" uid="uid://bfp1xcdaowe3y" path="res://scenes/enemy_slime.tscn" id="5_5wqml"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwo8o"]
 texture = ExtResource("1_yq4ml")
@@ -75,8 +76,13 @@ sources/0 = SubResource("TileSetAtlasSource_mwo8o")
 sources/1 = SubResource("TileSetAtlasSource_ph4fd")
 sources/2 = SubResource("TileSetAtlasSource_4cj1d")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4jis"]
+size = Vector2(34, 47)
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(-1, 0)
+script = ExtResource("1_p12vw")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -93,7 +99,21 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(458770, 655362, 7, 524306, 655362, 7, 393236, 2, 5, 589845, 2, 5, 458776, 2, 5, 589852, 2, 5, 720928, 2, 5, 720911, 2, 5, 917532, 2, 5, 655385, 655362, 7, 786451, 655362, 7, 983055, 655362, 7, 458784, 655362, 7, 458789, 655362, 7, 589860, 524290, 6, 589861, 524290, 6, 589862, 524290, 6, 589863, 524290, 6, 917539, 524290, 6, 917540, 524290, 6, 917541, 524290, 6, 917543, 524290, 6, 917542, 524290, 6, 983057, 393218, 7, 983059, 393218, 7, 983061, 393218, 7, 983063, 393218, 7, 917537, 2, 0, 655378, 2, 1, 917529, 2, 1, 720930, 2, 1, 458782, 393218, 7, 458786, 393218, 7, 786455, 327682, 0)
 
 [node name="player" parent="." instance=ExtResource("4_befsc")]
-position = Vector2(9, 20)
+position = Vector2(40, 31)
 
 [node name="enemy_slime" parent="." instance=ExtResource("5_5wqml")]
-position = Vector2(195, 85)
+position = Vector2(215, 85)
+
+[node name="collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
+polygon = PackedVector2Array(5, 0, 196, 0, 211, -48, 232, 0, 417, 1, 418, 138, 382, 145, 1, 143, -2, -46, -58, -46, -9, 229, 461, 147, 446, -36, 95, -81, 95, -81, 3, -42)
+
+[node name="cliffside_transition_point" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point"]
+position = Vector2(214, -23.5)
+shape = SubResource("RectangleShape2D_a4jis")
+
+[connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
+[connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]
