@@ -417,7 +417,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wh10i"]
-radius = 11.0454
+radius = 10.2956
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -445,7 +445,7 @@ wait_time = 0.5
 
 [node name="deal_attack_timer" type="Timer" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="world_camera" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
@@ -469,6 +469,16 @@ show_percentage = false
 [node name="regen_time" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="cliffside_camera" type="Camera2D" parent="."]
+position = Vector2(3, -6)
+zoom = Vector2(4, 4)
+limit_left = 306
+limit_top = -18
+limit_right = 575
+limit_bottom = 126
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [connection signal="body_entered" from="Player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="Player_hitbox" to="." method="_on_player_hitbox_body_exited"]

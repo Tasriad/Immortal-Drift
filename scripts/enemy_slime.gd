@@ -14,6 +14,8 @@ var can_take_damage=true
 func _physics_process(delta):
 	_deal_with_damage()
 	update_health()
+	if player_inattack_zone and not can_take_damage:
+		return
 	if player_chase:
 		# Calculate the direction to the player's position
 		var direction = player.position - position
