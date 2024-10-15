@@ -10,8 +10,10 @@ var current_dir = "none"
 var attack_ip=false
 var slime_attack_damage = 25
 
+
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
+		
 	
 func handle_input(delta):
 	if self == global.active_player:  # Only handle input if this player is active
@@ -23,6 +25,7 @@ func _physics_process(delta):
 	handle_input(delta)
 	enemy_attack()
 	#add current camera here
+	current_camera()
 	update_health()
 	
 	# If player dies transition to ghost state
@@ -36,6 +39,10 @@ func _physics_process(delta):
 		
 # Function to handle the player's movement
 func player_movement(delta): 
+	if attack_ip == true:
+		velocity.x = 0
+		velocity.y = 0
+		return  # Stop movement logic if attacking
 	# Check if the right movement key is pressed
 	if Input.is_action_pressed("ui_right"):  
 		current_dir = "right"
@@ -130,24 +137,31 @@ func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown=true
 	
 func attack():
-	var dir=current_dir
+	var dir = current_dir
+	# When attack is pressed
 	if Input.is_action_just_pressed("attack"):
-		global.player_current_attack=true
-		attack_ip=true
+		global.player_current_attack = true
+		attack_ip = true
+		$deal_attack_timer.start()
+
+		# Choose the right attack animation based on direction
 		if dir == "right":
-			$AnimatedSprite2D.flip_h=false
-			$AnimatedSprite2D.play("side_attack")	 
-			$deal_attack_timer.start()
-		if dir == "left":
-			$AnimatedSprite2D.flip_h=true
-			$AnimatedSprite2D.play("side_attack")	 
-			$deal_attack_timer.start()
-		if dir == "down":
-			$AnimatedSprite2D.play("front_attack")	 
-			$deal_attack_timer.start()
-		if dir == "up":
-			$AnimatedSprite2D.play("back_attack")	 
-			$deal_attack_timer.start()
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("side_attack")
+		elif dir == "left":
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("side_attack")
+		elif dir == "down":
+			$AnimatedSprite2D.play("front_attack")
+		elif dir == "up":
+			$AnimatedSprite2D.play("back_attack")
+
+	# When attack is released
+	if Input.is_action_just_released("attack"):
+		global.player_current_attack = false
+		attack_ip = false
+		$AnimatedSprite2D.play("idle")  # Reset to idle animation
+
 
 func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
@@ -170,6 +184,13 @@ func _on_regen_time_timeout():
 			health=full_health
 	if health<=0:
 		health=0
+func current_camera():
+	if global.current_scene=="world":
+		$world_camera.enabled=true
+		$cliffside_camera.enabled=false
+	elif global.current_scene=="cliff_side":
+		$world_camera.enabled=false
+		$cliffside_camera.enabled=true
 		
 # Function to spawn the ghost at player's position
 func spawn_ghost_at_player_position():
