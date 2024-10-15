@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0i7owf7ee6ln"
-path="res://.godot/imported/skeleton.png-35892015af6a4e607ff42c7d1dca599c.ctex"
+uid="uid://sxtb2w5jwhep"
+path="res://.godot/imported/Hurt.png-03dde3e08c3f2dfd440825994bd5dd95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/characters/skeleton.png"
-dest_files=["res://.godot/imported/skeleton.png-35892015af6a4e607ff42c7d1dca599c.ctex"]
+source_file="res://arts/characters/players/player light mage/Hurt.png"
+dest_files=["res://.godot/imported/Hurt.png-03dde3e08c3f2dfd440825994bd5dd95.ctex"]
 
 [params]
 

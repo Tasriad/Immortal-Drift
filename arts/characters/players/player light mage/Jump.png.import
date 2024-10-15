@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmaodial4qe24"
-path="res://.godot/imported/player.png-4a01e02d5c56d4e34a897730a6074db5.ctex"
+uid="uid://cvpdblssqyb2r"
+path="res://.godot/imported/Jump.png-d8288ca6e0fa98a6f40710ebe883e921.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://arts/characters/player.png"
-dest_files=["res://.godot/imported/player.png-4a01e02d5c56d4e34a897730a6074db5.ctex"]
+source_file="res://arts/characters/players/player light mage/Jump.png"
+dest_files=["res://.godot/imported/Jump.png-d8288ca6e0fa98a6f40710ebe883e921.ctex"]
 
 [params]
 
