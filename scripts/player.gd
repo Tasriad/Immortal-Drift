@@ -1,11 +1,14 @@
 extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D physics-based movement for the character
 var enemy_inattack_range=false
 var enemy_attack_cooldown=true
-var health=100
+var full_health = 100
+var regen_health = 20
+var health=full_health
 var player_alive=true
 const speed = 100  # Constant variable to define movement speed
 var current_dir = "none"
 var attack_ip=false
+var slime_attack_damage = 10
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -97,6 +100,7 @@ func play_animation(movement):
 		elif movement == 0:
 			if attack_ip==false:
 				animation.play("back_idle")
+				
 func player():
 	pass
 
@@ -110,15 +114,17 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 	
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health=health-10
+		health=health-slime_attack_damage # we have to modify this for more enemies
 		enemy_attack_cooldown=false
 		$attack_cooldown.start()
 		print("player health=",health)
+		
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown=true
+	
 func attack():
 	var dir=current_dir
-	if Input.is_key_pressed(KEY_A):
+	if Input.is_action_just_pressed("attack"):
 		global.player_current_attack=true
 		attack_ip=true
 		if dir == "right":
@@ -144,17 +150,17 @@ func _on_deal_attack_timer_timeout():
 func update_health():
 	var healthbar=$healthbar
 	healthbar.value=health
-	if health>=100:
+	if health>=full_health:
 		healthbar.visible=false
 	else:
 		healthbar.visible=true
 
 
 func _on_regen_time_timeout():
-	if health<100:
-		health=health+20
-		if health>100:
-			health=100
+	if health<full_health:
+		health=health+regen_health
+		if health>full_health:
+			health=full_health
 	if health<=0:
 		health=0
 	

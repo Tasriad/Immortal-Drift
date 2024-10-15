@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 # Speed at which the character moves
-var speed = 40
+var speed = 30
 # Boolean to check if the player is being chased
 var player_chase = false
 # Reference to the player node
 var player = null
-var health=100
+var slime_full_health = 100
+var health=slime_full_health
 var player_inattack_zone=false
 var can_take_damage=true
 
@@ -49,9 +50,9 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	player = null
 	player_chase = false
-func enemy():
+	
+func enemy(): #This method must be in every every enemy
 	pass
-
 
 func _on_enemy_hitbox_body_entered(body):
 	if(body.has_method("player")):
@@ -74,10 +75,11 @@ func _deal_with_damage():
 
 func _on_take_damage_cooldown_timeout() -> void:
 	can_take_damage=true
+	
 func update_health():
 	var healthbar=$healthbar
 	healthbar.value=health
-	if health>=100:
+	if health>=slime_full_health:
 		healthbar.visible=false
 	else:
 		healthbar.visible=true

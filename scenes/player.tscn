@@ -1,7 +1,7 @@
 [gd_scene load_steps=57 format=3 uid="uid://c3tgn4hc2gwuv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v4ybe"]
-[ext_resource type="Texture2D" uid="uid://cmaodial4qe24" path="res://arts/characters/player.png" id="2_5qc54"]
+[ext_resource type="Texture2D" uid="uid://cmaodial4qe24" path="res://arts/characters/players/player.png" id="2_5qc54"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmw8k"]
 radius = 5.09902
@@ -431,7 +431,7 @@ shape = SubResource("CircleShape2D_rmw8k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v6gga")
-animation = &"death"
+animation = &"side_attack"
 offset = Vector2(0, -17)
 
 [node name="Player_hitbox" type="Area2D" parent="."]
@@ -441,9 +441,9 @@ position = Vector2(2, -7)
 shape = SubResource("CircleShape2D_wh10i")
 
 [node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 0.5
 
 [node name="deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
