@@ -1,32 +1,39 @@
 extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D physics-based movement for the character
 var enemy_inattack_range=false
 var enemy_attack_cooldown=true
-var full_health = 100
-var regen_health = 20
+var full_health = 50
+var regen_health = 10
 var health=full_health
 var player_alive=true
 const speed = 100  # Constant variable to define movement speed
 var current_dir = "none"
 var attack_ip=false
-var slime_attack_damage = 10
+var slime_attack_damage = 25
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 	
+func handle_input(delta):
+	if self == global.active_player:  # Only handle input if this player is active
+		player_movement(delta)  # Implement your movement logic here
+		attack()
+	
 # The physics process function is called every frame to handle physics-related updates
 func _physics_process(delta):  
-	player_movement(delta)  # Calls the player_movement function to handle character movement
+	handle_input(delta)
 	enemy_attack()
-	attack()
 	#add current camera here
 	update_health()
 	
-	
-	if health <=0:
-		player_alive=0 #go back to menu or respond
+	# If player dies transition to ghost state
+	if health <=0 and player_alive:
+		player_alive=false #go back to menu or respond
 		health=0
 		print("Player has been killed")
+		spawn_player_body()
+		spawn_ghost_at_player_position()
 		self.queue_free()
+		
 # Function to handle the player's movement
 func player_movement(delta): 
 	# Check if the right movement key is pressed
@@ -163,4 +170,34 @@ func _on_regen_time_timeout():
 			health=full_health
 	if health<=0:
 		health=0
+		
+# Function to spawn the ghost at player's position
+func spawn_ghost_at_player_position():
+	# Load the ghost scene
+	var ghost_scene = preload("res://scenes/ghost.tscn")  # Update the path to your ghost scene
+	var ghost_instance = ghost_scene.instantiate()  # Create an instance of the ghost scene
+
+	# Set the ghost's position to the player's current position
+	ghost_instance.position = self.position
+
+	# Add the ghost to the scene, typically to the parent of the player
+	get_parent().add_child(ghost_instance)
 	
+	# Update the global.active_player to the ghost
+	global.active_player = ghost_instance  # Set ghost as the active player
+	
+	# Optionally, switch camera focus or any other control you need to the ghost
+	print("Ghost has appeared at player location")		
+	
+func spawn_player_body():
+	# Load the dead body scene
+	var body_scene = preload("res://scenes/dead_body.tscn")  # Ensure the path is correct
+	var body_instance = body_scene.instantiate()
+
+	# Set the position of the dead body to match the player's last position
+	body_instance.position = self.position
+
+	# Add the dead body to the scene tree
+	get_parent().add_child(body_instance)
+
+	print("Player's body has been left behind")	

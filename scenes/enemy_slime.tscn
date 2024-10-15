@@ -302,8 +302,6 @@ script = ExtResource("1_5nmsr")
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_jrown")
 animation = &"slime_front_idle"
-frame = 3
-frame_progress = 0.102614
 offset = Vector2(0, -5)
 
 [node name="detection_area" type="Area2D" parent="."]

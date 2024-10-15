@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://3a67al82oxq4"]
+[gd_scene load_steps=18 format=3 uid="uid://3a67al82oxq4"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_pryfr"]
 [ext_resource type="Texture2D" uid="uid://c30pqs4ug5e3r" path="res://arts/characters/players/ghost.png" id="1_sbvvy"]
@@ -114,6 +114,10 @@ animations = [{
 radius = 15.0
 height = 42.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1but"]
+radius = 16.0
+height = 46.0
+
 [node name="ghost" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
@@ -129,3 +133,20 @@ frame_progress = 0.25439
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2)
 shape = SubResource("CapsuleShape2D_cmx3w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 415
+limit_bottom = 191
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 1)
+shape = SubResource("CapsuleShape2D_a1but")

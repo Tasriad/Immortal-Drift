@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://bhkrwsuyf02sv"]
 
-[ext_resource type="Script" path="res://scenes/world.gd" id="1_p12vw"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_p12vw"]
 [ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_yq4ml"]
 [ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_k7iw1"]
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
 [ext_resource type="PackedScene" uid="uid://c3tgn4hc2gwuv" path="res://scenes/player.tscn" id="4_befsc"]
 [ext_resource type="PackedScene" uid="uid://bfp1xcdaowe3y" path="res://scenes/enemy_slime.tscn" id="5_5wqml"]
-[ext_resource type="PackedScene" uid="uid://3a67al82oxq4" path="res://scenes/ghost.tscn" id="7_28nk7"]
+[ext_resource type="PackedScene" uid="uid://br5o44u5olb08" path="res://scenes/player_light_mage.tscn" id="7_y2uo1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwo8o"]
 texture = ExtResource("1_yq4ml")
@@ -116,8 +116,8 @@ polygon = PackedVector2Array(5, 0, 196, 0, 211, -48, 232, 0, 417, 1, 418, 138, 3
 position = Vector2(214, -23.5)
 shape = SubResource("RectangleShape2D_a4jis")
 
-[node name="ghost" parent="." instance=ExtResource("7_28nk7")]
-position = Vector2(45, 20)
+[node name="player_light_mage" parent="." instance=ExtResource("7_y2uo1")]
+position = Vector2(200, 27)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]

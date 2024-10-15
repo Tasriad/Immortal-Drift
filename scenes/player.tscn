@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cmaodial4qe24" path="res://arts/characters/players/player.png" id="2_5qc54"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmw8k"]
-radius = 5.09902
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83ypq"]
 atlas = ExtResource("2_5qc54")
@@ -431,7 +430,7 @@ shape = SubResource("CircleShape2D_rmw8k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v6gga")
-animation = &"side_attack"
+animation = &"front_idle"
 offset = Vector2(0, -17)
 
 [node name="Player_hitbox" type="Area2D" parent="."]
@@ -467,7 +466,7 @@ scale = Vector2(0.2, 0.2)
 show_percentage = false
 
 [node name="regen_time" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="body_entered" from="Player_hitbox" to="." method="_on_player_hitbox_body_entered"]
