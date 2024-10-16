@@ -5,7 +5,7 @@ var full_health = 50
 var regen_health = 10
 var health=full_health
 var player_alive=true
-const speed = 100  # Constant variable to define movement speed
+const speed = 50  # Constant variable to define movement speed
 var current_dir = "none"
 var attack_ip=false
 var slime_attack_damage = 25
@@ -13,30 +13,26 @@ var slime_attack_damage = 25
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
-		
-	
-func handle_input(delta):
-	if self == global.active_player:  # Only handle input if this player is active
-		player_movement(delta)  # Implement your movement logic here
-		attack()
 	
 # The physics process function is called every frame to handle physics-related updates
 func _physics_process(delta):  
 	handle_input(delta)
 	enemy_attack()
-	#add current camera here
 	current_camera()
 	update_health()
-	
 	# If player dies transition to ghost state
 	if health <=0 and player_alive:
-		player_alive=false #go back to menu or respond
-		health=0
-		print("Player has been killed")
-		spawn_player_body()
-		spawn_ghost_at_player_position()
-		self.queue_free()
-		
+		player_dead()
+
+func handle_input(delta):
+	if self == global.active_player:  # Only handle input if this player is active
+		player_movement(delta)  # Implement your movement logic here
+		attack()
+
+# Identity that it is a player chracater
+func player():
+	pass
+
 # Function to handle the player's movement
 func player_movement(delta): 
 	if attack_ip == true:
@@ -115,8 +111,6 @@ func play_animation(movement):
 			if attack_ip==false:
 				animation.play("back_idle")
 				
-func player():
-	pass
 
 func _on_player_hitbox_body_entered(body: Node2D):
 	if body.has_method("enemy"):
@@ -176,6 +170,13 @@ func update_health():
 	else:
 		healthbar.visible=true
 
+func player_dead():
+	player_alive=false #go back to menu or respond
+	health=0
+	print("Player has been killed")
+	spawn_player_body()
+	spawn_ghost_at_player_position()
+	self.queue_free()
 
 func _on_regen_time_timeout():
 	if health<full_health:
@@ -184,6 +185,7 @@ func _on_regen_time_timeout():
 			health=full_health
 	if health<=0:
 		health=0
+
 func current_camera():
 	if global.current_scene=="world":
 		$world_camera.enabled=true
