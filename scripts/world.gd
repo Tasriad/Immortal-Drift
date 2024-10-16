@@ -9,7 +9,7 @@ func _ready() -> void:
 
     # Ensure the player is added to the current scene
 	add_child(global.active_player)	
-	
+
 	print("world ready")
 	if global.game_first_loadin == true:
 		$player.position.x = global.player_start_posx
@@ -38,21 +38,21 @@ func _on_cliffside_transition_point_body_entered(body: Node2D) -> void:
 		global.transition_scene=true
 
 
-func _on_cliffside_transition_point_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
-		print("transition point exited")
-		global.transition_scene=false
+# func _on_cliffside_transition_point_body_exited(body: Node2D) -> void:
+# 	if body.has_method("player"):
+# 		print("transition point exited")
+# 		global.transition_scene=false
 		
 		
 func change_scene():
 	if global.transition_scene:
         # Before changing the scene, save the player's position
 		var player_position = global.active_player.position
-        
         # Store the position for the next scene
 		global.player_exit_cliffside_posx = player_position.x
 		global.player_exit_cliffside_posy = player_position.y
-        
+		if global.active_player.get_parent():
+			global.active_player.get_parent().remove_child(global.active_player)
 		get_tree().change_scene_to_file("res://scenes/cliff_side.tscn")
 		global.finish_changescene()
 

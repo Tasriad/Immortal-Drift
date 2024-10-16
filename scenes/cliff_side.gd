@@ -4,15 +4,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("cliff_side ready")
-    
-    # Check if the active player exists, if not instantiate a new one
 	if not is_instance_valid(global.active_player):
-		global.active_player = global.player_scenes["player"].instantiate()  # Change to your default player or active character
-
-    # Set the player's position to the saved exit position
-	global.active_player.position = Vector2(global.player_exit_cliffside_posx, global.player_exit_cliffside_posy)
+		global.active_player = global.player_scenes["player"].instantiate() # Or instantiate the correct character
     
-    # Add the player to the scene
+	global.active_player.position = Vector2(global.player_exit_cliffside_posx, global.player_exit_cliffside_posy)
 	add_child(global.active_player)
 
 
