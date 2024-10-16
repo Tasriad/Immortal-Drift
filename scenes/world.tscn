@@ -98,9 +98,6 @@ layer_2/y_sort_enabled = true
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(458770, 655362, 7, 524306, 655362, 7, 393236, 2, 5, 589845, 2, 5, 458776, 2, 5, 589852, 2, 5, 720928, 2, 5, 720911, 2, 5, 917532, 2, 5, 655385, 655362, 7, 786451, 655362, 7, 983055, 655362, 7, 458784, 655362, 7, 458789, 655362, 7, 589860, 524290, 6, 589861, 524290, 6, 589862, 524290, 6, 589863, 524290, 6, 917539, 524290, 6, 917540, 524290, 6, 917541, 524290, 6, 917543, 524290, 6, 917542, 524290, 6, 983057, 393218, 7, 983059, 393218, 7, 983061, 393218, 7, 983063, 393218, 7, 917537, 2, 0, 655378, 2, 1, 917529, 2, 1, 720930, 2, 1, 458782, 393218, 7, 458786, 393218, 7, 786455, 327682, 0)
 
-[node name="enemy_slime" parent="." instance=ExtResource("5_5wqml")]
-position = Vector2(215, 85)
-
 [node name="collision" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
@@ -114,6 +111,9 @@ shape = SubResource("RectangleShape2D_5vbld")
 
 [node name="player_light_mage" parent="." instance=ExtResource("7_y2uo1")]
 position = Vector2(90, 60)
+
+[node name="enemy_slime" parent="." instance=ExtResource("5_5wqml")]
+position = Vector2(209, 83)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]

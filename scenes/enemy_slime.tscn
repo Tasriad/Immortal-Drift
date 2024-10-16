@@ -287,14 +287,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cxd7"]
-radius = 43.0116
+radius = 52.0384
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1s3i"]
 radius = 4.12311
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2k3t3"]
 
-[node name="enemy_slime" type="CharacterBody2D"]
+[node name="enemy_slime" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -1)
 script = ExtResource("1_5nmsr")
 
@@ -334,9 +334,13 @@ offset_bottom = 30.0
 scale = Vector2(0.2, 0.2)
 show_percentage = false
 
+[node name="attack_cooldown_timer" type="Timer" parent="."]
+wait_time = 1.5
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
 [connection signal="body_shape_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_shape_entered"]
 [connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
+[connection signal="timeout" from="attack_cooldown_timer" to="." method="_on_attack_cooldown_timer_timeout"]

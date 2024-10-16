@@ -1,0 +1,192 @@
+[gd_scene load_steps=36 format=3 uid="uid://dn3qxba55v6oe"]
+
+[ext_resource type="PackedScene" uid="uid://bfp1xcdaowe3y" path="res://scenes/enemy_slime.tscn" id="1_2sxf3"]
+[ext_resource type="Texture2D" uid="uid://cfael16rx8ig5" path="res://arts/enemies/small_dragon/Attack1.png" id="2_27nvx"]
+[ext_resource type="Script" path="res://scripts/enemy_small_dragon.gd" id="2_rdabi"]
+[ext_resource type="Texture2D" uid="uid://be2uofsbsvgjd" path="res://arts/enemies/small_dragon/Attack2.png" id="3_otjug"]
+[ext_resource type="Texture2D" uid="uid://kirl8l7upy80" path="res://arts/enemies/small_dragon/Attack3.png" id="4_1sac8"]
+[ext_resource type="Texture2D" uid="uid://c1bdarmln00py" path="res://arts/enemies/small_dragon/Death1.png" id="5_ieeov"]
+[ext_resource type="Texture2D" uid="uid://dy4l7r366mgqi" path="res://arts/enemies/small_dragon/Death2.png" id="6_2rarb"]
+[ext_resource type="Texture2D" uid="uid://btkmiqgg8axj" path="res://arts/enemies/small_dragon/Death3.png" id="7_iu5yh"]
+[ext_resource type="Texture2D" uid="uid://tcwlodnwgaqc" path="res://arts/enemies/small_dragon/Hurt1.png" id="8_t6rkb"]
+[ext_resource type="Texture2D" uid="uid://ct2bl0uvbd7te" path="res://arts/enemies/small_dragon/Hurt2.png" id="9_cmpmg"]
+[ext_resource type="Texture2D" uid="uid://dkjwbuaiivfgs" path="res://arts/enemies/small_dragon/Idle1.png" id="10_11a3h"]
+[ext_resource type="Texture2D" uid="uid://uhy0ym0miwb8" path="res://arts/enemies/small_dragon/Idle2.png" id="11_ai76v"]
+[ext_resource type="Texture2D" uid="uid://c4mx2ejh58a2o" path="res://arts/enemies/small_dragon/Idle3.png" id="12_f61g7"]
+[ext_resource type="Texture2D" uid="uid://cvpkpw6d3q28" path="res://arts/enemies/small_dragon/Walk1.png" id="13_7u0k6"]
+[ext_resource type="Texture2D" uid="uid://dyqct3e8e6grv" path="res://arts/enemies/small_dragon/Walk2.png" id="14_mws8x"]
+[ext_resource type="Texture2D" uid="uid://4brm2suwpak7" path="res://arts/enemies/small_dragon/Walk3.png" id="15_53tg6"]
+[ext_resource type="Texture2D" uid="uid://buupgqw72sgb7" path="res://arts/enemies/small_dragon/Walk4.png" id="16_n4aaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpd1t"]
+atlas = ExtResource("2_27nvx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_espu5"]
+atlas = ExtResource("3_otjug")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyfxh"]
+atlas = ExtResource("4_1sac8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ml1c"]
+atlas = ExtResource("5_ieeov")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k24rj"]
+atlas = ExtResource("6_2rarb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drmlw"]
+atlas = ExtResource("7_iu5yh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q28ru"]
+atlas = ExtResource("8_t6rkb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxekp"]
+atlas = ExtResource("9_cmpmg")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd3uf"]
+atlas = ExtResource("10_11a3h")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unkyq"]
+atlas = ExtResource("11_ai76v")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbcvj"]
+atlas = ExtResource("12_f61g7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daql6"]
+atlas = ExtResource("13_7u0k6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne21g"]
+atlas = ExtResource("14_mws8x")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts57s"]
+atlas = ExtResource("15_53tg6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gne7j"]
+atlas = ExtResource("16_n4aaa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6v5ol"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_qpd1t")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_espu5")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_cyfxh")
+}],
+"loop": true,
+"name": &"small_dragon_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_4ml1c")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_k24rj")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_drmlw")
+}],
+"loop": true,
+"name": &"small_dragon_death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_q28ru")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_rxekp")
+}],
+"loop": true,
+"name": &"small_dragon_hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd3uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unkyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbcvj")
+}],
+"loop": true,
+"name": &"small_dragon_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daql6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne21g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts57s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gne7j")
+}],
+"loop": true,
+"name": &"small_dragon_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_pb2rg"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erc08"]
+size = Vector2(45, 23)
+
+[node name="enemy_small_dragon" instance=ExtResource("1_2sxf3")]
+script = ExtResource("2_rdabi")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_6v5ol")
+animation = &"small_dragon_idle"
+flip_h = true
+script = SubResource("GDScript_pb2rg")
+
+[node name="CollisionShape2D" parent="detection_area" index="0"]
+position = Vector2(-1, 2)
+
+[node name="CollisionShape2D" parent="enemy_hitbox" index="0"]
+position = Vector2(-6.5, -1.5)
+shape = SubResource("RectangleShape2D_erc08")
+
+[node name="healthbar" parent="." index="5"]
+offset_left = -2.0
+offset_top = -17.0
+offset_right = 98.0
+offset_bottom = 10.0

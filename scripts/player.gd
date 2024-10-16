@@ -121,11 +121,11 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 		enemy_inattack_range=false
 	
 func enemy_attack():
-	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health=health-slime_attack_damage # we have to modify this for more enemies
-		enemy_attack_cooldown=false
+	# Enemy attacks player through their attack method
+	if enemy_inattack_range:
+
+		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print("player health=",health)
 		
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown=true
@@ -161,6 +161,11 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	global.player_current_attack=false
 	attack_ip=false
+
+# Method to take damage from enemies
+func take_damage(damage):
+	health -= damage
+	print("Player took damage, health: ", health)	
 	
 func update_health():
 	var healthbar=$healthbar
@@ -171,12 +176,20 @@ func update_health():
 		healthbar.visible=true
 
 func player_dead():
-	player_alive=false #go back to menu or respond
-	health=0
+	player_alive = false  # Player is dead, set this flag to false
+	health = 0
 	print("Player has been killed")
 	spawn_player_body()
 	spawn_ghost_at_player_position()
+
+	# Reset slime detection or attack states after the player's death
+	for enemy in get_tree().get_nodes_in_group("enemies"):  # Assuming you have your slimes in an "enemies" group
+		if enemy.has_method("reset_attack_target"):
+			enemy.reset_attack_target()
+
+	# Free the player character
 	self.queue_free()
+
 
 func _on_regen_time_timeout():
 	if health<full_health:
