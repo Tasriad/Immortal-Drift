@@ -188,11 +188,9 @@ func _on_regen_time_timeout():
 
 func current_camera():
 	if global.current_scene=="world":
-		print("world camera")
 		$world_camera.enabled=true
 		$cliffside_camera.enabled=false
 	elif global.current_scene=="cliff_side":
-		print("cliffside camera")
 		$world_camera.enabled=false
 		$cliffside_camera.enabled=true
 		

@@ -2,6 +2,14 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if global.game_first_loadin:
+		global.active_player.position = Vector2(global.player_start_posx, global.player_start_posy)
+	else:
+		global.active_player.position = Vector2(global.player_exit_cliffside_posx, global.player_exit_cliffside_posy)
+
+    # Ensure the player is added to the current scene
+	add_child(global.active_player)	
+	
 	print("world ready")
 	if global.game_first_loadin == true:
 		$player.position.x = global.player_start_posx
@@ -37,9 +45,15 @@ func _on_cliffside_transition_point_body_exited(body: Node2D) -> void:
 		
 		
 func change_scene():
-	if global.transition_scene==true:
-		print("changing scene (in world)")
+	if global.transition_scene:
+        # Before changing the scene, save the player's position
+		var player_position = global.active_player.position
+        
+        # Store the position for the next scene
+		global.player_exit_cliffside_posx = player_position.x
+		global.player_exit_cliffside_posy = player_position.y
+        
 		get_tree().change_scene_to_file("res://scenes/cliff_side.tscn")
-		global.game_first_loadin=false
 		global.finish_changescene()
+
 	

@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhkrwsuyf02sv"]
+[gd_scene load_steps=12 format=3 uid="uid://bhkrwsuyf02sv"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_p12vw"]
 [ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_yq4ml"]
 [ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_k7iw1"]
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
-[ext_resource type="PackedScene" uid="uid://c3tgn4hc2gwuv" path="res://scenes/player.tscn" id="4_befsc"]
 [ext_resource type="PackedScene" uid="uid://bfp1xcdaowe3y" path="res://scenes/enemy_slime.tscn" id="5_5wqml"]
 [ext_resource type="PackedScene" uid="uid://br5o44u5olb08" path="res://scenes/player_light_mage.tscn" id="7_y2uo1"]
 
@@ -98,9 +97,6 @@ layer_2/name = "ysort"
 layer_2/y_sort_enabled = true
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(458770, 655362, 7, 524306, 655362, 7, 393236, 2, 5, 589845, 2, 5, 458776, 2, 5, 589852, 2, 5, 720928, 2, 5, 720911, 2, 5, 917532, 2, 5, 655385, 655362, 7, 786451, 655362, 7, 983055, 655362, 7, 458784, 655362, 7, 458789, 655362, 7, 589860, 524290, 6, 589861, 524290, 6, 589862, 524290, 6, 589863, 524290, 6, 917539, 524290, 6, 917540, 524290, 6, 917541, 524290, 6, 917543, 524290, 6, 917542, 524290, 6, 983057, 393218, 7, 983059, 393218, 7, 983061, 393218, 7, 983063, 393218, 7, 917537, 2, 0, 655378, 2, 1, 917529, 2, 1, 720930, 2, 1, 458782, 393218, 7, 458786, 393218, 7, 786455, 327682, 0)
-
-[node name="player" parent="." instance=ExtResource("4_befsc")]
-position = Vector2(16, 20)
 
 [node name="enemy_slime" parent="." instance=ExtResource("5_5wqml")]
 position = Vector2(215, 85)
