@@ -1,7 +1,7 @@
 extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D physics-based movement for the character
 var enemy_inattack_range=false
 var enemy_attack_cooldown=true
-var full_health = 50
+var full_health = 200
 var regen_health = 10
 var health=full_health
 var player_alive=true

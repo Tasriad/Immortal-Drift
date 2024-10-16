@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_yq4ml"]
 [ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_k7iw1"]
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
-[ext_resource type="PackedScene" uid="uid://bfp1xcdaowe3y" path="res://scenes/enemy_slime.tscn" id="5_5wqml"]
+[ext_resource type="PackedScene" uid="uid://dn3qxba55v6oe" path="res://scenes/enemy_small_dragon.tscn" id="6_37dy2"]
 [ext_resource type="PackedScene" uid="uid://br5o44u5olb08" path="res://scenes/player_light_mage.tscn" id="7_y2uo1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwo8o"]
@@ -112,8 +112,8 @@ shape = SubResource("RectangleShape2D_5vbld")
 [node name="player_light_mage" parent="." instance=ExtResource("7_y2uo1")]
 position = Vector2(90, 60)
 
-[node name="enemy_slime" parent="." instance=ExtResource("5_5wqml")]
-position = Vector2(209, 83)
+[node name="enemy_small_dragon" parent="." instance=ExtResource("6_37dy2")]
+position = Vector2(217, 83)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]
