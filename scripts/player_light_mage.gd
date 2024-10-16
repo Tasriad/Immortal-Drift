@@ -1,14 +1,11 @@
 extends "res://scripts/player.gd"  # Inherit from the base player script
 
 # Custom animations for the light_mage
+
 var attack_type = 0  # Variable to track the current attack type
 
-func handle_input(delta):
-	# This player should only handle input if it is the active player
-	if self == global.active_player:
-		# Implement movement logic specific to the light mage if needed
-		player_movement(delta)
-		attack()  # Call the attack function if an attack input is detected
+func _ready():
+	$AnimatedSprite2D.play("light_mage_idle")  # Default idle animation
 
 
 # Override the base movement method if necessary to apply custom animations
@@ -47,7 +44,7 @@ func attack():
 	if Input.is_action_just_pressed("attack"):
 		global.player_current_attack = true
 		attack_ip = true
-
+		$deal_attack_timer.start()
 		match attack_type:
 			0:
 				attack1()
@@ -60,6 +57,11 @@ func attack():
 
 		# Cycle through the attack types after each attack
 		attack_type = (attack_type + 1) % 4
+	# When attack is released
+	if Input.is_action_just_released("attack"):
+		global.player_current_attack = false
+		attack_ip = false
+		$AnimatedSprite2D.play("light_mage_idle")  # Reset to idle animation		
 
 # Methods for the different attacks
 

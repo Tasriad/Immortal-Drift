@@ -117,7 +117,7 @@ position = Vector2(211, -22)
 shape = SubResource("RectangleShape2D_5vbld")
 
 [node name="player_light_mage" parent="." instance=ExtResource("7_y2uo1")]
-position = Vector2(200, 27)
+position = Vector2(90, 60)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]

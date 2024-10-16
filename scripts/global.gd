@@ -1,6 +1,5 @@
 extends Node
 
-
 var player_current_attack=false
 var current_scene="world" #world cliff_side
 var transition_scene=false
@@ -13,16 +12,19 @@ var game_first_loadin=true
 
 func _ready():
 	# Set the initial active player
-	active_player = get_tree().get_root().get_node("world/player")  # Adjust the path as necessary
+	print("global is ready.")
+	active_player = get_tree().get_root().get_node("world/player")  # first active player is the basic player
+	print("active player is: " + active_player.name)
 
 func finish_changescene():
 	if transition_scene==true:
-		print("Hello")
+		print("from global-> changed scene")
 		transition_scene=false
+		# need to revisit this logic for dynamism
 		if current_scene=="world":
 			current_scene="cliff_side"
 		else:
-			current_scene=="world"
+			current_scene="world"
 	else:
-		print("Bye")
+		print("transition scene was false.")
 		

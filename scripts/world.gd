@@ -2,6 +2,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("world ready")
 	if global.game_first_loadin == true:
 		$player.position.x = global.player_start_posx
 		$player.position.y = global.player_start_posy
@@ -25,16 +26,19 @@ func handle_player_input(delta):
 
 func _on_cliffside_transition_point_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
+		print("transition point entered")
 		global.transition_scene=true
 
 
 func _on_cliffside_transition_point_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
+		print("transition point exited")
 		global.transition_scene=false
 		
 		
 func change_scene():
 	if global.transition_scene==true:
+		print("changing scene (in world)")
 		get_tree().change_scene_to_file("res://scenes/cliff_side.tscn")
 		global.game_first_loadin=false
 		global.finish_changescene()
