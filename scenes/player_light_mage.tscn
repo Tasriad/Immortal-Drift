@@ -1,6 +1,6 @@
 [gd_scene load_steps=101 format=3 uid="uid://br5o44u5olb08"]
 
-[ext_resource type="PackedScene" uid="uid://c3tgn4hc2gwuv" path="res://scenes/player.tscn" id="1_grxf4"]
+[ext_resource type="PackedScene" uid="uid://nf2ws1u6hmhv" path="res://scenes/player.tscn" id="1_grxf4"]
 [ext_resource type="Texture2D" uid="uid://0unahntn07sc" path="res://arts/characters/players/player light mage/Attack_1.png" id="2_im12p"]
 [ext_resource type="Script" path="res://scripts/player_light_mage.gd" id="2_oqxqq"]
 [ext_resource type="Texture2D" uid="uid://cqcet2scfso" path="res://arts/characters/players/player light mage/Attack_2.png" id="3_j667e"]
@@ -668,6 +668,7 @@ animations = [{
 
 [node name="player_light_mage" instance=ExtResource("1_grxf4")]
 position = Vector2(87, 1)
+scale = Vector2(0.7, 0.7)
 script = ExtResource("2_oqxqq")
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -686,3 +687,6 @@ position = Vector2(-1, 2)
 [node name="CollisionShape2D" parent="Player_hitbox" index="0"]
 position = Vector2(1, -11)
 shape = SubResource("CapsuleShape2D_3hisx")
+
+[node name="world_camera" parent="." index="5"]
+position = Vector2(-1.42857, -12.8571)

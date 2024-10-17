@@ -9,16 +9,17 @@ const speed = 50  # Constant variable to define movement speed
 var current_dir = "none"
 var attack_ip=false
 var slime_attack_damage = 25
+var is_under_attack = false  # Track whether the player is under attack
 
 
 func _ready():
+	$world_camera.enabled = true
 	$AnimatedSprite2D.play("front_idle")
 	
 # The physics process function is called every frame to handle physics-related updates
 func _physics_process(delta):  
 	handle_input(delta)
 	enemy_attack()
-	current_camera()
 	update_health()
 	# If player dies transition to ghost state
 	if health <=0 and player_alive:
@@ -35,7 +36,7 @@ func player():
 
 # Function to handle the player's movement
 func player_movement(delta): 
-	if attack_ip == true:
+	if attack_ip == true or is_under_attack==true:
 		velocity.x = 0
 		velocity.y = 0
 		return  # Stop movement logic if attacking
@@ -124,11 +125,13 @@ func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health=health-slime_attack_damage # we have to modify this for more enemies
 		enemy_attack_cooldown=false
+		is_under_attack = true  # Set the flag when the player is under attack
 		$attack_cooldown.start()
 		print("player health=",health)
 		
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown=true
+	is_under_attack = false  # Allow movement again after the attack
 	
 func attack():
 	var dir = current_dir
@@ -186,13 +189,6 @@ func _on_regen_time_timeout():
 	if health<=0:
 		health=0
 
-func current_camera():
-	if global.current_scene=="world":
-		$world_camera.enabled=true
-		$cliffside_camera.enabled=false
-	elif global.current_scene=="cliff_side":
-		$world_camera.enabled=false
-		$cliffside_camera.enabled=true
 		
 # Function to spawn the ghost at player's position
 func spawn_ghost_at_player_position():

@@ -10,6 +10,7 @@ func _ready():
 	$AnimatedSprite2D.play("ghost_front_idle")  # Default idle animation
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
 	$Area2D.connect("body_exited", Callable(self, "_on_body_exited"))	
+	
 
 func _physics_process(delta):
 	ghost_movement(delta)  # Handle ghost movement
@@ -102,11 +103,21 @@ func handle_possess():
 # Function to possess a new character
 func possess_character(new_character: Node):
 	if global.active_player:
+		# Disable the camera of the old active player (if it exists)
+		if global.active_player.has_node("world_camera"):
+			global.active_player.get_node("world_camera").enabled = false
+
 		global.active_player.queue_free()  # Optionally remove or hide the current active player
 
-	global.active_player = new_character  # Set the new character as active
+	# Set the new character as active
+	global.active_player = new_character  
 	global.active_player.show()  # Make sure the new character is visible
-	global.active_player.position = position  # Move to the ghost's current position
+	global.active_player.position = self.position  # Move the new character to the ghost's current position
+
+	# Enable the new character's camera
+	if global.active_player.has_node("world_camera"):
+		global.active_player.get_node("world_camera").enabled = true
+		#global.active_player.get_node("world_camera").current = true  # Set it as the current camera
 
 	# Finally, hide the ghost
 	self.hide()

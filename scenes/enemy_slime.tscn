@@ -287,15 +287,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cxd7"]
-radius = 43.0116
+radius = 42.5793
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1s3i"]
 radius = 4.12311
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2k3t3"]
+radius = 14.5602
 
 [node name="enemy_slime" type="CharacterBody2D"]
 position = Vector2(0, -1)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_5nmsr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -318,9 +320,10 @@ rotation = 0.244849
 shape = SubResource("CircleShape2D_l1s3i")
 
 [node name="enemy_hitbox" type="Area2D" parent="."]
+position = Vector2(4, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
-position = Vector2(0, -3)
+position = Vector2(-4, 0)
 shape = SubResource("CircleShape2D_2k3t3")
 
 [node name="take_damage_cooldown" type="Timer" parent="."]

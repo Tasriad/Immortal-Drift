@@ -123,6 +123,7 @@ func attack4():
 		
 func possess():
 	# This method is called when the ghost possesses this character
+	$"NodePathToCamera".enabled=true
 	global.active_player.queue_free()  # Remove the old active player	
 	global.active_player = self  # Update the active player
 	self.show()  # Make sure the character is visible

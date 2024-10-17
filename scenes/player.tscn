@@ -1,10 +1,9 @@
-[gd_scene load_steps=57 format=3 uid="uid://c3tgn4hc2gwuv"]
+[gd_scene load_steps=57 format=3 uid="uid://nf2ws1u6hmhv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v4ybe"]
 [ext_resource type="Texture2D" uid="uid://cmaodial4qe24" path="res://arts/characters/players/player.png" id="2_5qc54"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmw8k"]
-radius = 5.09902
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83ypq"]
 atlas = ExtResource("2_5qc54")
@@ -417,71 +416,61 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wh10i"]
-radius = 10.2956
+radius = 11.4018
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(87, 0)
+position = Vector2(304, 283)
+scale = Vector2(0.5, 0.5)
 collision_layer = 3
 script = ExtResource("1_v4ybe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -4)
+position = Vector2(-1, 0)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_rmw8k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 7)
 sprite_frames = SubResource("SpriteFrames_v6gga")
 animation = &"front_idle"
 offset = Vector2(0, -17)
 
 [node name="Player_hitbox" type="Area2D" parent="."]
+position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_hitbox"]
-position = Vector2(2, -7)
+position = Vector2(2, -2)
 shape = SubResource("CircleShape2D_wh10i")
 
 [node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="world_camera" type="Camera2D" parent="."]
+position = Vector2(92, 2)
+enabled = false
 zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 416
-limit_bottom = 145
-limit_smoothed = true
-rotation_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [node name="healthbar" type="ProgressBar" parent="."]
 modulate = Color(0.368627, 0.819608, 0, 1)
 visibility_layer = 513
-offset_left = -7.0
-offset_top = 2.0
-offset_right = 88.0
-offset_bottom = 29.0
-scale = Vector2(0.2, 0.2)
+offset_left = -3.0
+offset_right = 92.0
+offset_bottom = 27.0
+scale = Vector2(0.179485, 0.154503)
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="regen_time" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
 
-[node name="cliffside_camera" type="Camera2D" parent="."]
-position = Vector2(3, -6)
-zoom = Vector2(4, 4)
-limit_left = 306
-limit_top = -18
-limit_right = 575
-limit_bottom = 126
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
 [connection signal="body_entered" from="Player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="Player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="body_shape_exited" from="Player_hitbox" to="." method="_on_player_hitbox_body_shape_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="regen_time" to="." method="_on_regen_time_timeout"]
