@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dmtxsxdlal7u1" path="res://arts/characters/players/player light mage/Walk.png" id="12_2w6xp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct8qj"]
-radius = 7.0
-height = 26.0
+radius = 9.42857
+height = 24.5714
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqox6"]
 atlas = ExtResource("2_im12p")
@@ -676,8 +676,8 @@ position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_ct8qj")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(0.999992, -13)
-scale = Vector2(0.35, 0.35)
+position = Vector2(1.42857, -18.5714)
+scale = Vector2(0.35, 0.288449)
 sprite_frames = SubResource("SpriteFrames_pyutf")
 animation = &"light_mage_idle"
 
@@ -685,8 +685,8 @@ animation = &"light_mage_idle"
 position = Vector2(-1, 2)
 
 [node name="CollisionShape2D" parent="Player_hitbox" index="0"]
-position = Vector2(1, -11)
+position = Vector2(0.999998, -13.4286)
 shape = SubResource("CapsuleShape2D_3hisx")
 
 [node name="world_camera" parent="." index="5"]
-position = Vector2(-1.42857, -12.8571)
+position = Vector2(0, -5.71428)

@@ -10,6 +10,8 @@ var current_dir = "none"
 var attack_ip=false
 var slime_attack_damage = 25
 var is_under_attack = false  # Track whether the player is under attack
+var startx=584
+var starty=670
 
 
 func _ready():
@@ -29,6 +31,8 @@ func handle_input(delta):
 	if self == global.active_player:  # Only handle input if this player is active
 		player_movement(delta)  # Implement your movement logic here
 		attack()
+	if Input.is_action_just_pressed("reset_position"):  # Assuming 'reset_position' is mapped to 'R'
+			reset_player_position()
 
 # Identity that it is a player chracater
 func player():
@@ -220,3 +224,9 @@ func spawn_player_body():
 	get_parent().add_child(body_instance)
 
 	print("Player's body has been left behind")	
+# Function to reset player position to the start coordinates
+func reset_player_position():
+	position.x = startx  # Reset to starting x-coordinate
+	position.y = starty  # Reset to starting y-coordinate
+	print("Player position reset to start:", startx, starty)
+	health=health-5
