@@ -2,7 +2,7 @@ extends "res://scripts/player.gd"  # Inherit from the base player script
 
 # Custom animations for the light_mage
 
-var attack_type = 0  # Variable to track the current attack type
+var attack_type = 1  # Variable to track the current attack type
 
 func _ready():
 	$AnimatedSprite2D.play("light_mage_idle")  # Default idle animation

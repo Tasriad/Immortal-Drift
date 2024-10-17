@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0x7xntdlwcth"
+path="res://.godot/imported/minataur axe.mp3-ec619ac4514248261905993af173adb4.mp3str"
+
+[deps]
+
+source_file="res://music/minataur axe.mp3"
+dest_files=["res://.godot/imported/minataur axe.mp3-ec619ac4514248261905993af173adb4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

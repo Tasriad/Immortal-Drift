@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://dii8csv087ran"]
+
+[ext_resource type="PackedScene" uid="uid://cbhsv2vgdkgvp" path="res://scenes/npc_soldier.tscn" id="1_c02hq"]
+[ext_resource type="Script" path="res://scripts/npc_girl.gd" id="2_wr3ph"]
+[ext_resource type="Texture2D" uid="uid://c8x2qthfuebsu" path="res://arts/characters/npc/tiny/TPF_Character_1.png" id="3_umsqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awrpq"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnd75"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5top"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnrsa"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wbuq"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77nbf"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc21b"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb0ti"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g30fs"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(384, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dck44"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(432, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3ox1"]
+atlas = ExtResource("3_umsqh")
+region = Rect2(480, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eapfo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awrpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnd75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5top")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnrsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wbuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77nbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc21b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb0ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g30fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dck44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3ox1")
+}],
+"loop": true,
+"name": &"npc_girl_walk",
+"speed": 5.0
+}]
+
+[node name="npc_girl" instance=ExtResource("1_c02hq")]
+script = ExtResource("2_wr3ph")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_eapfo")
+animation = &"npc_girl_walk"
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 3)

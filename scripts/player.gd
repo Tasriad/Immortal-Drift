@@ -1,17 +1,19 @@
 extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D physics-based movement for the character
 var enemy_inattack_range=false
 var enemy_attack_cooldown=true
-var full_health = 50
-var regen_health = 10
+@export var full_health = 75
+@export var regen_health = 10
 var health=full_health
 var player_alive=true
-const speed = 50  # Constant variable to define movement speed
+@export var speed = 50  # Constant variable to define movement speed
 var current_dir = "none"
 var attack_ip=false
 var slime_attack_damage = 25
 var is_under_attack = false  # Track whether the player is under attack
 var startx=584
 var starty=670
+
+@onready var hitsound=$AudioStreamPlayer as AudioStreamPlayer
 
 
 func _ready():
@@ -126,12 +128,11 @@ func _on_player_hitbox_body_exited(body: Node2D) -> void:
 		enemy_inattack_range=false
 	
 func enemy_attack():
-	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health=health-slime_attack_damage # we have to modify this for more enemies
-		enemy_attack_cooldown=false
-		is_under_attack = true  # Set the flag when the player is under attack
+	# Enemy attacks player through their attack method
+	if enemy_inattack_range:
+
+		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print("player health=",health)
 		
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown=true
@@ -149,13 +150,17 @@ func attack():
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")
+			hitsound.play()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("side_attack")
+			hitsound.play()
 		elif dir == "down":
 			$AnimatedSprite2D.play("front_attack")
+			hitsound.play()
 		elif dir == "up":
 			$AnimatedSprite2D.play("back_attack")
+			hitsound.play()
 
 	# When attack is released
 	if Input.is_action_just_released("attack"):
@@ -168,6 +173,11 @@ func _on_deal_attack_timer_timeout():
 	$deal_attack_timer.stop()
 	global.player_current_attack=false
 	attack_ip=false
+
+# Method to take damage from enemies
+func take_damage(damage):
+	health -= damage
+	print("Player took damage, health: ", health)	
 	
 func update_health():
 	var healthbar=$healthbar
@@ -178,12 +188,20 @@ func update_health():
 		healthbar.visible=true
 
 func player_dead():
-	player_alive=false #go back to menu or respond
-	health=0
+	player_alive = false  # Player is dead, set this flag to false
+	health = 0
 	print("Player has been killed")
 	spawn_player_body()
 	spawn_ghost_at_player_position()
+
+	# Reset slime detection or attack states after the player's death
+	for enemy in get_tree().get_nodes_in_group("enemies"):  # Assuming you have your slimes in an "enemies" group
+		if enemy.has_method("reset_attack_target"):
+			enemy.reset_attack_target()
+
+	# Free the player character
 	self.queue_free()
+
 
 func _on_regen_time_timeout():
 	if health<full_health:

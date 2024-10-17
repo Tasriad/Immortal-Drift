@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://bw074wl17hjjn"]
+
+[ext_resource type="PackedScene" uid="uid://cbhsv2vgdkgvp" path="res://scenes/npc_soldier.tscn" id="1_xp8sb"]
+[ext_resource type="Script" path="res://scripts/npc_mage.gd" id="2_h6qv6"]
+[ext_resource type="Texture2D" uid="uid://c6kttd8yqb17r" path="res://arts/characters/npc/tiny/TPF_Character_5b.png" id="3_ljrmg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4o8j"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7t5v"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv5nx"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yu3v"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwadx"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkfgc"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf0io"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8noi"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woa6s"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(384, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kis1j"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(432, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ohu6"]
+atlas = ExtResource("3_ljrmg")
+region = Rect2(480, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwgas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4o8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7t5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv5nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yu3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwadx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkfgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf0io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8noi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woa6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kis1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ohu6")
+}],
+"loop": true,
+"name": &"npc_mage_walk",
+"speed": 5.0
+}]
+
+[node name="npc_mage" instance=ExtResource("1_xp8sb")]
+script = ExtResource("2_h6qv6")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_kwgas")
+animation = &"npc_mage_walk"
+frame = 4
+frame_progress = 0.710889
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 3)

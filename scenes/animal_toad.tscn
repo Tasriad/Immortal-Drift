@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfqdgwgf4j30t"]
+
+[ext_resource type="PackedScene" uid="uid://x2btl5uiwvl4" path="res://scenes/animal_chicken.tscn" id="1_yc2n3"]
+[ext_resource type="Script" path="res://scripts/animal_toad.gd" id="2_td5c3"]
+[ext_resource type="Texture2D" uid="uid://hihb2yal1bvj" path="res://arts/characters/animals/Croaking Toad/CroakingToad.png" id="3_vsf6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo2yh"]
+atlas = ExtResource("3_vsf6h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egi31"]
+atlas = ExtResource("3_vsf6h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hq3c"]
+atlas = ExtResource("3_vsf6h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctumo"]
+atlas = ExtResource("3_vsf6h")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1h1rn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo2yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egi31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hq3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctumo")
+}],
+"loop": true,
+"name": &"toad_idle",
+"speed": 5.0
+}]
+
+[node name="animal_toad" instance=ExtResource("1_yc2n3")]
+script = ExtResource("2_td5c3")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_1h1rn")
+animation = &"toad_idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 2)

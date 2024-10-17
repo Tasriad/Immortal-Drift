@@ -1,0 +1,227 @@
+[gd_scene load_steps=47 format=3 uid="uid://blcte3dg8yjyi"]
+
+[ext_resource type="PackedScene" uid="uid://dn3qxba55v6oe" path="res://scenes/enemy_small_dragon.tscn" id="1_rrr1f"]
+[ext_resource type="Texture2D" uid="uid://cg4y74bwv4xca" path="res://arts/enemies/small_medusa/Attack1.png" id="2_g2py2"]
+[ext_resource type="Script" path="res://scripts/enemy_small_medusa.gd" id="2_mj713"]
+[ext_resource type="Texture2D" uid="uid://bv2in2ujfjwd0" path="res://arts/enemies/small_medusa/Attack2.png" id="3_ahnqt"]
+[ext_resource type="Texture2D" uid="uid://iajt7qdl31gt" path="res://arts/enemies/small_medusa/Attack3.png" id="4_di512"]
+[ext_resource type="Texture2D" uid="uid://bitg1cc8mfqyr" path="res://arts/enemies/small_medusa/Attack4.png" id="5_e2l26"]
+[ext_resource type="Texture2D" uid="uid://b4fxwigxn5sgj" path="res://arts/enemies/small_medusa/Attack5.png" id="6_dkxmr"]
+[ext_resource type="Texture2D" uid="uid://bsur5ay3lmvbi" path="res://arts/enemies/small_medusa/Attack6.png" id="7_gsg8d"]
+[ext_resource type="Texture2D" uid="uid://idhgr0qgkvk5" path="res://arts/enemies/small_medusa/Death1.png" id="8_v670l"]
+[ext_resource type="Texture2D" uid="uid://cbc6vs6ferjrr" path="res://arts/enemies/small_medusa/Death2.png" id="9_76xr6"]
+[ext_resource type="Texture2D" uid="uid://bsoodyxeypnpc" path="res://arts/enemies/small_medusa/Death3.png" id="10_0ylii"]
+[ext_resource type="Texture2D" uid="uid://bhgu4vk8pkx1i" path="res://arts/enemies/small_medusa/Death4.png" id="11_73fto"]
+[ext_resource type="Texture2D" uid="uid://doqva6hb5gkys" path="res://arts/enemies/small_medusa/Death5.png" id="12_wquwh"]
+[ext_resource type="Texture2D" uid="uid://ca2mnuyralum7" path="res://arts/enemies/small_medusa/Death6.png" id="13_pksdl"]
+[ext_resource type="Texture2D" uid="uid://duk8na3mp8c87" path="res://arts/enemies/small_medusa/Hurt1.png" id="14_evgq4"]
+[ext_resource type="Texture2D" uid="uid://bk7eau13ejfk5" path="res://arts/enemies/small_medusa/Hurt2.png" id="15_p6ndf"]
+[ext_resource type="Texture2D" uid="uid://bqovvc8mrnbya" path="res://arts/enemies/small_medusa/Idle1.png" id="16_x0nad"]
+[ext_resource type="Texture2D" uid="uid://c1da1yfyapm35" path="res://arts/enemies/small_medusa/Idle2.png" id="17_vrex8"]
+[ext_resource type="Texture2D" uid="uid://c7qivh6g1fyw4" path="res://arts/enemies/small_medusa/Idle3.png" id="18_5k8xo"]
+[ext_resource type="Texture2D" uid="uid://dxq337tdu42uj" path="res://arts/enemies/small_medusa/Walk1.png" id="19_a4odq"]
+[ext_resource type="Texture2D" uid="uid://b8vmxcp0rpxvw" path="res://arts/enemies/small_medusa/Walk2.png" id="20_3shxa"]
+[ext_resource type="Texture2D" uid="uid://m6ujtbyt73c5" path="res://arts/enemies/small_medusa/Walk3.png" id="21_m8okx"]
+[ext_resource type="Texture2D" uid="uid://ysxkdgqpodss" path="res://arts/enemies/small_medusa/Walk4.png" id="22_bwkf3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxhbo"]
+atlas = ExtResource("2_g2py2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7pov"]
+atlas = ExtResource("3_ahnqt")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_814dv"]
+atlas = ExtResource("4_di512")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbrcf"]
+atlas = ExtResource("5_e2l26")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jllng"]
+atlas = ExtResource("6_dkxmr")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu45u"]
+atlas = ExtResource("7_gsg8d")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6xwv"]
+atlas = ExtResource("8_v670l")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk4fj"]
+atlas = ExtResource("9_76xr6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djhta"]
+atlas = ExtResource("10_0ylii")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kxpt"]
+atlas = ExtResource("11_73fto")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vry7e"]
+atlas = ExtResource("12_wquwh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yushb"]
+atlas = ExtResource("13_pksdl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge4wv"]
+atlas = ExtResource("14_evgq4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leelh"]
+atlas = ExtResource("15_p6ndf")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt424"]
+atlas = ExtResource("16_x0nad")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldpis"]
+atlas = ExtResource("17_vrex8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd3jm"]
+atlas = ExtResource("18_5k8xo")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynyup"]
+atlas = ExtResource("19_a4odq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00o5o"]
+atlas = ExtResource("20_3shxa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0xsi"]
+atlas = ExtResource("21_m8okx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx0nd"]
+atlas = ExtResource("22_bwkf3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpdxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxhbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7pov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_814dv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_mbrcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jllng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xu45u")
+}],
+"loop": true,
+"name": &"small_medusa_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6xwv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_rk4fj")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_djhta")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3kxpt")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_vry7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yushb")
+}],
+"loop": true,
+"name": &"small_medusa_death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_ge4wv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_leelh")
+}],
+"loop": true,
+"name": &"small_medusa_hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt424")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldpis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd3jm")
+}],
+"loop": true,
+"name": &"small_medusa_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynyup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00o5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0xsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx0nd")
+}],
+"loop": true,
+"name": &"small_medusa_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxame"]
+radius = 18.0
+height = 36.0
+
+[node name="enemy_small_medusa" instance=ExtResource("1_rrr1f")]
+script = ExtResource("2_mj713")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_xpdxl")
+animation = &"small_medusa_hurt"
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="detection_area" index="0"]
+position = Vector2(8, -1)
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(7, -1)
+
+[node name="CollisionShape2D" parent="enemy_hitbox" index="0"]
+position = Vector2(7, -1)
+shape = SubResource("CapsuleShape2D_yxame")
+
+[node name="healthbar" parent="." index="5"]
+offset_top = -23.0
+offset_bottom = 4.0
