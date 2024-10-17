@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
 [ext_resource type="PackedScene" uid="uid://cmlgm7v2kd4se" path="res://scenes/player_shinobi.tscn" id="6_522cp"]
 [ext_resource type="PackedScene" uid="uid://dvpgqxacy2cyy" path="res://scenes/enemy_minataur.tscn" id="6_vwctf"]
-[ext_resource type="PackedScene" uid="uid://dii8csv087ran" path="res://scenes/npc_girl.tscn" id="7_445ej"]
+[ext_resource type="PackedScene" uid="uid://x2btl5uiwvl4" path="res://scenes/animal_chicken.tscn" id="7_3yijb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwo8o"]
 texture = ExtResource("1_yq4ml")
@@ -116,8 +116,8 @@ position = Vector2(215, 82)
 [node name="player_shinobi" parent="." instance=ExtResource("6_522cp")]
 position = Vector2(92, 62)
 
-[node name="npc_girl" parent="." instance=ExtResource("7_445ej")]
-position = Vector2(51, 103)
+[node name="animal_chicken" parent="." instance=ExtResource("7_3yijb")]
+position = Vector2(54, 105)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]

@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 # Speed at which the character moves
-var speed = 30
+@export var speed = 30
 # Boolean to check if the player is being chased
 var player_chase = false
 # Reference to the player node
 var player = null
-var slime_full_health = 100
-var slime_attack_damage = 25
+@export var slime_full_health = 100
+@export var slime_attack_damage = 25
 var health = slime_full_health
 var player_inattack_zone = false
 var can_take_damage = true

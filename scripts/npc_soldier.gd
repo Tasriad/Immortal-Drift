@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # NPC speed and distances
-var speed = 50
-var distance = 100
+@export var speed = 50
+@export var distance = 100
 var move_direction = Vector2(1, 0)  # Initially moving to the right
 var original_position
 

@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://chibu5bl5nxyn"]
+
+[ext_resource type="PackedScene" uid="uid://x2btl5uiwvl4" path="res://scenes/animal_chicken.tscn" id="1_ggxm6"]
+[ext_resource type="Script" path="res://scripts/animal_wolf.gd" id="2_282c7"]
+[ext_resource type="Texture2D" uid="uid://bf6mpy1kosjuh" path="res://arts/characters/animals/Timber Wolf/TimberWolf.png" id="3_souon"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up3yb"]
+atlas = ExtResource("3_souon")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1pmy"]
+atlas = ExtResource("3_souon")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1siij"]
+atlas = ExtResource("3_souon")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sffkp"]
+atlas = ExtResource("3_souon")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1j2ed"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_up3yb")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_j1pmy")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_1siij")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_sffkp")
+}],
+"loop": true,
+"name": &"wolf_idle",
+"speed": 5.0
+}]
+
+[node name="animal_wolf" instance=ExtResource("1_ggxm6")]
+script = ExtResource("2_282c7")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_1j2ed")
+animation = &"wolf_idle"
+frame_progress = 0.02265
