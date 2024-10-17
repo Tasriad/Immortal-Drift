@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://on8akcyitjpe"]
+[gd_scene load_steps=6 format=3 uid="uid://on8akcyitjpe"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_86d1u"]
 [ext_resource type="Texture2D" uid="uid://boaow6e8x6qmr" path="res://arts/sprites/covers and cutscenes/cover_menu.jpg" id="2_cruic"]
 [ext_resource type="PackedScene" uid="uid://cpddycp5gxt2n" path="res://scenes/help.tscn" id="3_l60nv"]
+[ext_resource type="AudioStream" uid="uid://cajc4hhdp4alq" path="res://music/main_menu.mp3" id="4_lx06j"]
 
 [sub_resource type="SystemFont" id="SystemFont_t4sin"]
 
@@ -90,3 +91,7 @@ text = "Exit Game
 
 [node name="Help" parent="." instance=ExtResource("3_l60nv")]
 layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lx06j")
+autoplay = true

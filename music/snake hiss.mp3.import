@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmttjrxeie7h4"
+path="res://.godot/imported/snake hiss.mp3-98adab766ce0bd283dcc50e53b52b0bd.mp3str"
+
+[deps]
+
+source_file="res://music/snake hiss.mp3"
+dest_files=["res://.godot/imported/snake hiss.mp3-98adab766ce0bd283dcc50e53b52b0bd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
