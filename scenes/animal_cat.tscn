@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0mfsgyoctfh2"]
+
+[ext_resource type="PackedScene" uid="uid://x2btl5uiwvl4" path="res://scenes/animal_chicken.tscn" id="1_74qpb"]
+[ext_resource type="Script" path="res://scripts/animal_cat.gd" id="2_s37xn"]
+[ext_resource type="Texture2D" uid="uid://pows1s20e00o" path="res://arts/characters/animals/Meowing Cat/MeowingCat.png" id="3_1x6hh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlbqh"]
+atlas = ExtResource("3_1x6hh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d3sy"]
+atlas = ExtResource("3_1x6hh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yhku"]
+atlas = ExtResource("3_1x6hh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2qpm"]
+atlas = ExtResource("3_1x6hh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ctp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlbqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d3sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yhku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2qpm")
+}],
+"loop": true,
+"name": &"cat_idle",
+"speed": 5.0
+}]
+
+[node name="animal_cat" instance=ExtResource("1_74qpb")]
+script = ExtResource("2_s37xn")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_7ctp5")
+animation = &"cat_idle"

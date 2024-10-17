@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhkrwsuyf02sv"]
+[gd_scene load_steps=11 format=3 uid="uid://bhkrwsuyf02sv"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_p12vw"]
 [ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_yq4ml"]
 [ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_k7iw1"]
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
-[ext_resource type="PackedScene" uid="uid://m5psthcieebk" path="res://scenes/player_fire_mage.tscn" id="6_2cv22"]
-[ext_resource type="PackedScene" uid="uid://dvpgqxacy2cyy" path="res://scenes/enemy_minataur.tscn" id="6_vwctf"]
+[ext_resource type="PackedScene" uid="uid://bpgnai2eejoaj" path="res://scenes/boss_evil_wizard.tscn" id="5_vv5xv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwo8o"]
 texture = ExtResource("1_yq4ml")
@@ -109,11 +108,8 @@ polygon = PackedVector2Array(14, 0, 188, -1, 188, -44, 233, -43, 233, 2, 418, 0,
 position = Vector2(211, -22)
 shape = SubResource("RectangleShape2D_5vbld")
 
-[node name="enemy_minataur" parent="." instance=ExtResource("6_vwctf")]
-position = Vector2(215, 82)
-
-[node name="player_fire_mage" parent="." instance=ExtResource("6_2cv22")]
-position = Vector2(93, 64)
+[node name="boss_evil_wizard" parent="." instance=ExtResource("5_vv5xv")]
+position = Vector2(198, 83)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]

@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://dl0xaynwii2wi"]
+
+[ext_resource type="PackedScene" uid="uid://cbhsv2vgdkgvp" path="res://scenes/npc_soldier.tscn" id="1_32hdd"]
+[ext_resource type="Script" path="res://scripts/npc_guard.gd" id="2_fn3rt"]
+[ext_resource type="Texture2D" uid="uid://jh5qtxap44d" path="res://arts/characters/npc/tiny/TPF_Character_4b.png" id="3_vtdmb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b87y1"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4vcy"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pys8p"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abvtf"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgau5"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhm2g"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o0dg"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaiv6"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(336, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voing"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(384, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8av2"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(432, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7keh"]
+atlas = ExtResource("3_vtdmb")
+region = Rect2(480, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8j80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b87y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4vcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pys8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abvtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgau5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhm2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o0dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaiv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voing")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8av2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7keh")
+}],
+"loop": true,
+"name": &"npc_guard_walk",
+"speed": 5.0
+}]
+
+[node name="npc_guard" instance=ExtResource("1_32hdd")]
+script = ExtResource("2_fn3rt")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_r8j80")
+animation = &"npc_guard_walk"
+frame = 8
+frame_progress = 0.901756

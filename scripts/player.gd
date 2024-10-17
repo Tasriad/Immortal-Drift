@@ -1,11 +1,11 @@
 extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D physics-based movement for the character
 var enemy_inattack_range=false
 var enemy_attack_cooldown=true
-var full_health = 75
-var regen_health = 10
+@export var full_health = 75
+@export var regen_health = 10
 var health=full_health
 var player_alive=true
-const speed = 50  # Constant variable to define movement speed
+@export var speed = 50  # Constant variable to define movement speed
 var current_dir = "none"
 var attack_ip=false
 var slime_attack_damage = 25

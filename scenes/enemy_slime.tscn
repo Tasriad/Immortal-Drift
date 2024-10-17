@@ -287,12 +287,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cxd7"]
-radius = 50.0899
+radius = 104.005
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1s3i"]
 radius = 17.2627
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2k3t3"]
+radius = 12.0
 
 [node name="enemy_slime" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(0, -1)

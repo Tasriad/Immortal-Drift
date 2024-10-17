@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dmtxsxdlal7u1" path="res://arts/characters/players/player light mage/Walk.png" id="12_2w6xp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct8qj"]
-radius = 7.0
-height = 26.0
+radius = 9.0
+height = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqox6"]
 atlas = ExtResource("2_im12p")
@@ -665,7 +665,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hisx"]
-radius = 7.0
+height = 34.0
 
 [node name="player_light_mage" instance=ExtResource("1_grxf4")]
 position = Vector2(87, 1)
