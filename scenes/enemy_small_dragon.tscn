@@ -166,7 +166,7 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erc08"]
-size = Vector2(45, 23)
+size = Vector2(51.5, 23)
 
 [node name="enemy_small_dragon" instance=ExtResource("1_2sxf3")]
 script = ExtResource("2_rdabi")
@@ -184,7 +184,7 @@ script = SubResource("GDScript_pb2rg")
 position = Vector2(-1, 2)
 
 [node name="CollisionShape2D" parent="enemy_hitbox" index="0"]
-position = Vector2(-6.5, -1.5)
+position = Vector2(-1.75, -2)
 shape = SubResource("RectangleShape2D_erc08")
 
 [node name="healthbar" parent="." index="5"]

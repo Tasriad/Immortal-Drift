@@ -1,7 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://cckr6akiie80x"]
+[gd_scene load_steps=49 format=3 uid="uid://cckr6akiie80x"]
 
 [ext_resource type="PackedScene" uid="uid://dn3qxba55v6oe" path="res://scenes/enemy_small_dragon.tscn" id="1_ipob0"]
 [ext_resource type="Texture2D" uid="uid://dq40toid516f2" path="res://arts/enemies/small_lizard/Attack1.png" id="2_0mvxo"]
+[ext_resource type="Script" path="res://scripts/enemy_small_lizard.gd" id="2_o5eak"]
 [ext_resource type="Texture2D" uid="uid://cjmue2yfmp0al" path="res://arts/enemies/small_lizard/Attack2.png" id="3_wd0xf"]
 [ext_resource type="Texture2D" uid="uid://nq1qx74c6qn6" path="res://arts/enemies/small_lizard/Attack3.png" id="4_eoa84"]
 [ext_resource type="Texture2D" uid="uid://bnqxnuylvuh2b" path="res://arts/enemies/small_lizard/Attack4.png" id="5_7utu8"]
@@ -206,10 +207,31 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wlrya"]
+radius = 14.0
+height = 34.0
+
 [node name="enemy_small_lizard" instance=ExtResource("1_ipob0")]
+script = ExtResource("2_o5eak")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_611nr")
 animation = &"small_lizard_hurt"
 frame = 0
 frame_progress = 0.671221
+
+[node name="CollisionShape2D" parent="detection_area" index="0"]
+position = Vector2(7, -1)
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(7, -2.38419e-07)
+
+[node name="CollisionShape2D" parent="enemy_hitbox" index="0"]
+position = Vector2(7, -2)
+shape = SubResource("CapsuleShape2D_wlrya")
+
+[node name="healthbar" parent="." index="5"]
+offset_left = -3.0
+offset_top = -20.0
+offset_right = 97.0
+offset_bottom = 7.0

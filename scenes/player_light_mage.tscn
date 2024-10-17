@@ -665,6 +665,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hisx"]
+radius = 7.0
 
 [node name="player_light_mage" instance=ExtResource("1_grxf4")]
 position = Vector2(87, 1)

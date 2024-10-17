@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_yq4ml"]
 [ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_k7iw1"]
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
-[ext_resource type="PackedScene" uid="uid://dn3qxba55v6oe" path="res://scenes/enemy_small_dragon.tscn" id="6_37dy2"]
-[ext_resource type="PackedScene" uid="uid://br5o44u5olb08" path="res://scenes/player_light_mage.tscn" id="7_y2uo1"]
+[ext_resource type="PackedScene" uid="uid://m5psthcieebk" path="res://scenes/player_fire_mage.tscn" id="6_2cv22"]
+[ext_resource type="PackedScene" uid="uid://dvpgqxacy2cyy" path="res://scenes/enemy_minataur.tscn" id="6_vwctf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwo8o"]
 texture = ExtResource("1_yq4ml")
@@ -109,11 +109,11 @@ polygon = PackedVector2Array(14, 0, 188, -1, 188, -44, 233, -43, 233, 2, 418, 0,
 position = Vector2(211, -22)
 shape = SubResource("RectangleShape2D_5vbld")
 
-[node name="player_light_mage" parent="." instance=ExtResource("7_y2uo1")]
-position = Vector2(90, 60)
+[node name="enemy_minataur" parent="." instance=ExtResource("6_vwctf")]
+position = Vector2(215, 82)
 
-[node name="enemy_small_dragon" parent="." instance=ExtResource("6_37dy2")]
-position = Vector2(217, 83)
+[node name="player_fire_mage" parent="." instance=ExtResource("6_2cv22")]
+position = Vector2(93, 64)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]
