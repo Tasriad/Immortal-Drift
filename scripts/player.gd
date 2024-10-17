@@ -10,6 +10,8 @@ var current_dir = "none"
 var attack_ip=false
 var slime_attack_damage = 25
 
+@onready var hitsound=$AudioStreamPlayer as AudioStreamPlayer
+
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -142,13 +144,17 @@ func attack():
 		if dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")
+			hitsound.play()
 		elif dir == "left":
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("side_attack")
+			hitsound.play()
 		elif dir == "down":
 			$AnimatedSprite2D.play("front_attack")
+			hitsound.play()
 		elif dir == "up":
 			$AnimatedSprite2D.play("back_attack")
+			hitsound.play()
 
 	# When attack is released
 	if Input.is_action_just_released("attack"):
