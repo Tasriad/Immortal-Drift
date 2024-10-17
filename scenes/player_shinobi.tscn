@@ -296,5 +296,11 @@ animation = &"shinobi_attack4"
 frame = 0
 frame_progress = 0.0
 
+[node name="world_camera" parent="." index="5"]
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+
 [node name="AudioStreamPlayer2D" parent="." index="8"]
 stream = ExtResource("10_i077e")

@@ -209,6 +209,7 @@ animations = [{
 
 [node name="npc_goat" instance=ExtResource("1_q8c3b")]
 script = ExtResource("2_v77c7")
+distance = 50
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.3, 0.3)

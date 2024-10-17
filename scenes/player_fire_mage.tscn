@@ -449,6 +449,12 @@ frame_progress = 0.0
 [node name="CollisionShape2D" parent="Player_hitbox" index="0"]
 position = Vector2(2, -12)
 
+[node name="world_camera" parent="." index="5"]
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+
 [node name="healthbar" parent="." index="6"]
 offset_left = 4.0
 offset_top = -24.0

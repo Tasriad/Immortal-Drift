@@ -171,9 +171,6 @@ size = Vector2(51.5, 23)
 
 [node name="enemy_small_dragon" instance=ExtResource("1_2sxf3")]
 script = ExtResource("2_rdabi")
-speed = null
-slime_full_health = null
-slime_attack_damage = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)

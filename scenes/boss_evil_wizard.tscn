@@ -347,9 +347,6 @@ height = 66.0
 
 [node name="boss_evil_wizard" instance=ExtResource("1_g8vl2")]
 script = ExtResource("2_7roq6")
-speed = null
-slime_full_health = null
-slime_attack_damage = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.7, 0.7)
