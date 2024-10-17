@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhkrwsuyf02sv"]
+[gd_scene load_steps=11 format=3 uid="uid://bhkrwsuyf02sv"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_p12vw"]
 [ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_yq4ml"]
 [ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_k7iw1"]
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
 [ext_resource type="PackedScene" uid="uid://bpgnai2eejoaj" path="res://scenes/boss_evil_wizard.tscn" id="5_vv5xv"]
-[ext_resource type="AudioStream" uid="uid://fhu3cvvkxjcp" path="res://music/gameplay_background.mp3" id="6_batkq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwo8o"]
 texture = ExtResource("1_yq4ml")
@@ -111,10 +110,6 @@ shape = SubResource("RectangleShape2D_5vbld")
 
 [node name="boss_evil_wizard" parent="." instance=ExtResource("5_vv5xv")]
 position = Vector2(198, 83)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_batkq")
-autoplay = true
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]
