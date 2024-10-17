@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhkrwsuyf02sv"]
+[gd_scene load_steps=13 format=3 uid="uid://bhkrwsuyf02sv"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_p12vw"]
 [ext_resource type="Texture2D" uid="uid://c67e68fexikxu" path="res://arts/tilesets/plains.png" id="1_yq4ml"]
 [ext_resource type="Texture2D" uid="uid://5yi11hl7ynp8" path="res://arts/tilesets/grass.png" id="2_k7iw1"]
 [ext_resource type="Texture2D" uid="uid://4ixcn41i5odm" path="res://arts/objects/objects.png" id="3_ht2oi"]
-[ext_resource type="PackedScene" uid="uid://m5psthcieebk" path="res://scenes/player_fire_mage.tscn" id="6_2cv22"]
+[ext_resource type="PackedScene" uid="uid://cmlgm7v2kd4se" path="res://scenes/player_shinobi.tscn" id="6_522cp"]
 [ext_resource type="PackedScene" uid="uid://dvpgqxacy2cyy" path="res://scenes/enemy_minataur.tscn" id="6_vwctf"]
+[ext_resource type="PackedScene" uid="uid://dii8csv087ran" path="res://scenes/npc_girl.tscn" id="7_445ej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwo8o"]
 texture = ExtResource("1_yq4ml")
@@ -112,8 +113,11 @@ shape = SubResource("RectangleShape2D_5vbld")
 [node name="enemy_minataur" parent="." instance=ExtResource("6_vwctf")]
 position = Vector2(215, 82)
 
-[node name="player_fire_mage" parent="." instance=ExtResource("6_2cv22")]
-position = Vector2(93, 64)
+[node name="player_shinobi" parent="." instance=ExtResource("6_522cp")]
+position = Vector2(92, 62)
+
+[node name="npc_girl" parent="." instance=ExtResource("7_445ej")]
+position = Vector2(51, 103)
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]

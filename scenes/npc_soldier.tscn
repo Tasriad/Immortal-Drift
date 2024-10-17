@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cbhsv2vgdkgvp"]
+
+[ext_resource type="Script" path="res://scripts/npc_soldier.gd" id="1_dxhf5"]
+[ext_resource type="Texture2D" uid="uid://cf0vwauatbitk" path="res://arts/characters/npc/Knight_1/Walk.png" id="2_k6ymg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yqbu"]
+atlas = ExtResource("2_k6ymg")
+region = Rect2(0, 0, 96, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqcv6"]
+atlas = ExtResource("2_k6ymg")
+region = Rect2(83, 0, 83, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvo6c"]
+atlas = ExtResource("2_k6ymg")
+region = Rect2(154, 0, 77, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v40e"]
+atlas = ExtResource("2_k6ymg")
+region = Rect2(225, 0, 75, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxbxw"]
+atlas = ExtResource("2_k6ymg")
+region = Rect2(296, 0, 74, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7583d"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_1yqbu")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_pqcv6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xvo6c")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0v40e")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_dxbxw")
+}],
+"loop": true,
+"name": &"npc_soldier_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7tgg4"]
+radius = 8.0
+height = 36.0
+
+[node name="npc_soldier" type="CharacterBody2D"]
+script = ExtResource("1_dxhf5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7583d")
+animation = &"npc_soldier_walk"
+frame = 2
+frame_progress = 0.0838754
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 5)
+shape = SubResource("CapsuleShape2D_7tgg4")
