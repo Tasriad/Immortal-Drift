@@ -1,5 +1,6 @@
 extends "res://scripts/enemy_small_dragon.gd"  # Inherit from the base player script
 
+@onready var hitsound1=$AudioStreamPlayer2D
 # New variable to toggle between attack animations
 var use_first_attack = true
 
@@ -37,6 +38,7 @@ func attack_player():
 				print("Attack 2")
 				$AnimatedSprite2D.play("evil_wizard_attack2")
 
+			hitsound1.play()  # Play the attack sound
 			# Toggle the attack for the next use
 			use_first_attack = not use_first_attack
 

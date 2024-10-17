@@ -1,5 +1,9 @@
 extends "res://scripts/player.gd"  # Inherit from the base player script
 
+@onready var hitsound1=$AudioStreamPlayer2D
+@onready var hitsound2=$AudioStreamPlayer2D2
+@onready var hitsound3=$AudioStreamPlayer2D3
+@onready var hitsound4=$AudioStreamPlayer2D4
 # Custom animations for the light_mage
 
 var attack_type = 1  # Variable to track the current attack type
@@ -77,7 +81,7 @@ func attack1():
 		$AnimatedSprite2D.play("light_mage_attack1_side")
 	elif dir == "up":
 		$AnimatedSprite2D.play("light_mage_attack1_side")
-
+	hitsound1.play()
 	$deal_attack_timer.start()  # Start the timer for dealing damage
 
 func attack2():
@@ -92,7 +96,7 @@ func attack2():
 		$AnimatedSprite2D.play("light_mage_attack2_side")
 	elif dir == "up":
 		$AnimatedSprite2D.play("light_mage_attack2_side")
-
+	hitsound1.play()
 	$deal_attack_timer.start()  # Start the timer for dealing damage
 
 func attack3():
@@ -107,6 +111,8 @@ func attack3():
 		$AnimatedSprite2D.play("light_mage_attack3_side")
 	elif dir == "up":
 		$AnimatedSprite2D.play("light_mage_attack3_side")
+	hitsound1.play()	
+	$deal_attack_timer.start()  # Start the timer for dealing damage	
 
 func attack4():
 	var dir = current_dir
@@ -120,6 +126,8 @@ func attack4():
 		$AnimatedSprite2D.play("light_mage_attack4_side")
 	elif dir == "up":
 		$AnimatedSprite2D.play("light_mage_attack4_side")
+	hitsound1.play()	
+	$deal_attack_timer.start()  # Start the timer for dealing damage
 		
 func possess():
 	# This method is called when the ghost possesses this character

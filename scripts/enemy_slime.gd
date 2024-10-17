@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var hitsound1=$AudioStreamPlayer2D
 # Speed at which the character moves
 @export var speed = 30
 # Boolean to check if the player is being chased
@@ -79,6 +80,7 @@ func attack_player():
 	if player_inattack_zone and slime_attack_cooldown:
         # Ensure the active player is valid and can take damage before attacking
 		if global.active_player.has_method("take_damage") and global.active_player != null:
+			hitsound1.play()
 			global.active_player.take_damage(slime_attack_damage)
 			$attack_cooldown_timer.start()  # Start cooldown timer for the next attack
 			slime_attack_cooldown = false

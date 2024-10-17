@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cckr6akiie80x"]
+[gd_scene load_steps=50 format=3 uid="uid://cckr6akiie80x"]
 
 [ext_resource type="PackedScene" uid="uid://dn3qxba55v6oe" path="res://scenes/enemy_small_dragon.tscn" id="1_ipob0"]
 [ext_resource type="Texture2D" uid="uid://dq40toid516f2" path="res://arts/enemies/small_lizard/Attack1.png" id="2_0mvxo"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cepjx63cdpl6w" path="res://arts/enemies/small_lizard/Walk4.png" id="21_1ebix"]
 [ext_resource type="Texture2D" uid="uid://0sx3eiqcwl2p" path="res://arts/enemies/small_lizard/Walk5.png" id="22_2tsn2"]
 [ext_resource type="Texture2D" uid="uid://baq71oedo3e30" path="res://arts/enemies/small_lizard/Walk6.png" id="23_qx7ug"]
+[ext_resource type="AudioStream" uid="uid://d2sf502vtryrq" path="res://music/sword stab.mp3" id="25_6htkd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6ij3"]
 atlas = ExtResource("2_0mvxo")
@@ -235,3 +236,6 @@ offset_left = -3.0
 offset_top = -20.0
 offset_right = 97.0
 offset_bottom = 7.0
+
+[node name="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("25_6htkd")

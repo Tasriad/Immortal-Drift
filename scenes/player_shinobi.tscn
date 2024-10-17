@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cmlgm7v2kd4se"]
+[gd_scene load_steps=46 format=3 uid="uid://cmlgm7v2kd4se"]
 
 [ext_resource type="PackedScene" uid="uid://br5o44u5olb08" path="res://scenes/player_light_mage.tscn" id="1_5ssqj"]
 [ext_resource type="Script" path="res://scripts/player_shinobi.gd" id="2_cc1ba"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c63lq5getbuh8" path="res://arts/characters/players/player shinobi/Dead.png" id="6_cpdb5"]
 [ext_resource type="Texture2D" uid="uid://crih76u3v5tse" path="res://arts/characters/players/player shinobi/Idle.png" id="7_4uvi6"]
 [ext_resource type="Texture2D" uid="uid://ltjtl856fvl5" path="res://arts/characters/players/player shinobi/Run.png" id="8_ytofd"]
+[ext_resource type="AudioStream" uid="uid://t3glfj5acba6" path="res://music/sword horizontal swish.mp3" id="10_i077e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_helro"]
 atlas = ExtResource("2_vav4o")
@@ -292,3 +293,8 @@ script = ExtResource("2_cc1ba")
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_2vmlv")
 animation = &"shinobi_attack4"
+frame = 0
+frame_progress = 0.0
+
+[node name="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("10_i077e")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://m5psthcieebk"]
+[gd_scene load_steps=70 format=3 uid="uid://m5psthcieebk"]
 
 [ext_resource type="PackedScene" uid="uid://br5o44u5olb08" path="res://scenes/player_light_mage.tscn" id="1_0gk1u"]
 [ext_resource type="Script" path="res://scripts/player_fire_mage.gd" id="2_en6r2"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://ckk6va34pvxhj" path="res://arts/characters/players/player fire mage/Dead.png" id="6_kt0qu"]
 [ext_resource type="Texture2D" uid="uid://ciyitqjiuupw2" path="res://arts/characters/players/player fire mage/Hurt.png" id="7_5eet1"]
 [ext_resource type="Texture2D" uid="uid://dvfnpfnjxy0rf" path="res://arts/characters/players/player fire mage/Flame_jet.png" id="7_am36a"]
+[ext_resource type="AudioStream" uid="uid://t3glfj5acba6" path="res://music/sword horizontal swish.mp3" id="11_i4yd6"]
+[ext_resource type="AudioStream" uid="uid://d2sf502vtryrq" path="res://music/sword stab.mp3" id="12_ma6r3"]
+[ext_resource type="AudioStream" uid="uid://dd1128upixgq6" path="res://music/fireball.mp3" id="13_nht0j"]
+[ext_resource type="AudioStream" uid="uid://byk2n2la2we1f" path="res://music/flame throw.mp3" id="14_v4542"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ii2i7"]
 atlas = ExtResource("2_qggwo")
@@ -438,9 +442,9 @@ script = ExtResource("2_en6r2")
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(6, -13)
 sprite_frames = SubResource("SpriteFrames_ae2es")
-animation = &"fire_mage_attack3"
-frame = 6
-frame_progress = 0.903517
+animation = &"fire_mage_attack1"
+frame = 0
+frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="Player_hitbox" index="0"]
 position = Vector2(2, -12)
@@ -450,3 +454,15 @@ offset_left = 4.0
 offset_top = -24.0
 offset_right = 99.0
 offset_bottom = 3.0
+
+[node name="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("11_i4yd6")
+
+[node name="AudioStreamPlayer2D2" parent="." index="9"]
+stream = ExtResource("12_ma6r3")
+
+[node name="AudioStreamPlayer2D3" parent="." index="10"]
+stream = ExtResource("13_nht0j")
+
+[node name="AudioStreamPlayer2D4" parent="." index="11"]
+stream = ExtResource("14_v4542")

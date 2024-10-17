@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvf06sq2qttly"
+path="res://.godot/imported/medusa head.mp3-004381e5440d41bd6ccc1249201e517b.mp3str"
+
+[deps]
+
+source_file="res://music/medusa head.mp3"
+dest_files=["res://.godot/imported/medusa head.mp3-004381e5440d41bd6ccc1249201e517b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

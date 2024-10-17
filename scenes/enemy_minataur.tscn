@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://dvpgqxacy2cyy"]
+[gd_scene load_steps=43 format=3 uid="uid://dvpgqxacy2cyy"]
 
 [ext_resource type="PackedScene" uid="uid://dn3qxba55v6oe" path="res://scenes/enemy_small_dragon.tscn" id="1_o3a0p"]
 [ext_resource type="Script" path="res://scripts/enemy_minataur.gd" id="2_5bbpv"]
 [ext_resource type="Texture2D" uid="uid://cn08cp0v4p5l5" path="res://arts/enemies/Tiny series/Minotaur - Sprite Sheet.png" id="2_ckw6x"]
+[ext_resource type="AudioStream" uid="uid://t3glfj5acba6" path="res://music/sword horizontal swish.mp3" id="4_6cfn1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6psy"]
 atlas = ExtResource("2_ckw6x")
@@ -290,9 +291,9 @@ script = ExtResource("2_5bbpv")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_gm1g4")
-animation = &"minataur_idle"
+animation = &"minataur_attack2_side"
 frame = 0
-frame_progress = 0.560762
+frame_progress = 0.0
 flip_h = false
 
 [node name="CollisionShape2D" parent="detection_area" index="0"]
@@ -310,3 +311,6 @@ shape = SubResource("CapsuleShape2D_ia2lj")
 [node name="healthbar" parent="." index="5"]
 offset_top = -19.0
 offset_bottom = 8.0
+
+[node name="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("4_6cfn1")

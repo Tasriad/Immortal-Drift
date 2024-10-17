@@ -1,5 +1,6 @@
 extends "res://scripts/enemy_slime.gd"  # Inherit from the base player script
 
+@onready hitsound1=$AudioStreamPlayer2D
 var attacking = false  # Add an attacking state
 
 func chase(delta):
@@ -28,6 +29,7 @@ func attack_player():
 		if global.active_player.has_method("take_damage") and global.active_player != null:
 			attacking = true  # Set the attacking state to true
 			$AnimatedSprite2D.play("small_dragon_attack")
+			hitsound1.play()  # Play the attack sound
 			global.active_player.take_damage(slime_attack_damage)
 			$attack_cooldown_timer.start()  # Start cooldown timer for the next attack
 			slime_attack_cooldown = false

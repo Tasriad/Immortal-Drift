@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://blcte3dg8yjyi"]
+[gd_scene load_steps=48 format=3 uid="uid://blcte3dg8yjyi"]
 
 [ext_resource type="PackedScene" uid="uid://dn3qxba55v6oe" path="res://scenes/enemy_small_dragon.tscn" id="1_rrr1f"]
 [ext_resource type="Texture2D" uid="uid://cg4y74bwv4xca" path="res://arts/enemies/small_medusa/Attack1.png" id="2_g2py2"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b8vmxcp0rpxvw" path="res://arts/enemies/small_medusa/Walk2.png" id="20_3shxa"]
 [ext_resource type="Texture2D" uid="uid://m6ujtbyt73c5" path="res://arts/enemies/small_medusa/Walk3.png" id="21_m8okx"]
 [ext_resource type="Texture2D" uid="uid://ysxkdgqpodss" path="res://arts/enemies/small_medusa/Walk4.png" id="22_bwkf3"]
+[ext_resource type="AudioStream" uid="uid://cvf06sq2qttly" path="res://music/medusa head.mp3" id="24_qdmo8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxhbo"]
 atlas = ExtResource("2_g2py2")
@@ -208,7 +209,7 @@ script = ExtResource("2_mj713")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_xpdxl")
-animation = &"small_medusa_hurt"
+animation = &"small_medusa_attack"
 frame = 0
 frame_progress = 0.0
 
@@ -225,3 +226,6 @@ shape = SubResource("CapsuleShape2D_yxame")
 [node name="healthbar" parent="." index="5"]
 offset_top = -23.0
 offset_bottom = 4.0
+
+[node name="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("24_qdmo8")

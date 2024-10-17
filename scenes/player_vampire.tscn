@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://7tgcsfmb8aae"]
+[gd_scene load_steps=44 format=3 uid="uid://7tgcsfmb8aae"]
 
 [ext_resource type="PackedScene" uid="uid://br5o44u5olb08" path="res://scenes/player_light_mage.tscn" id="1_ldkbx"]
 [ext_resource type="Script" path="res://scripts/player_vampire.gd" id="2_8fqja"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cc31vxpu8kx05" path="res://arts/characters/players/player vampire/Dead.png" id="5_n70al"]
 [ext_resource type="Texture2D" uid="uid://jb2844fjovvp" path="res://arts/characters/players/player vampire/Idle.png" id="6_xu0kv"]
 [ext_resource type="Texture2D" uid="uid://dlkf00kvv8brw" path="res://arts/characters/players/player vampire/Run.png" id="7_u7eex"]
+[ext_resource type="AudioStream" uid="uid://d2sf502vtryrq" path="res://music/sword stab.mp3" id="9_cnpl2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lioo"]
 atlas = ExtResource("2_mc0co")
@@ -279,7 +280,12 @@ script = ExtResource("2_8fqja")
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(1, -13)
 sprite_frames = SubResource("SpriteFrames_ukiwm")
-animation = &"vampire_idle"
+animation = &"vampire_attack3"
+frame = 0
+frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="Player_hitbox" index="0"]
 position = Vector2(1, -12)
+
+[node name="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("9_cnpl2")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=65 format=3 uid="uid://wpxmk75dx6go"]
+[gd_scene load_steps=66 format=3 uid="uid://wpxmk75dx6go"]
 
 [ext_resource type="PackedScene" uid="uid://dn3qxba55v6oe" path="res://scenes/enemy_small_dragon.tscn" id="1_7u5fn"]
 [ext_resource type="Texture2D" uid="uid://tmses3hxia5w" path="res://arts/enemies/Tiny series/Goblin1.png" id="2_flx4o"]
 [ext_resource type="Script" path="res://scripts/enemy_small_goblin.gd" id="2_ix4ho"]
+[ext_resource type="AudioStream" uid="uid://t3glfj5acba6" path="res://music/sword horizontal swish.mp3" id="4_dxn5i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fd5a5"]
 atlas = ExtResource("2_flx4o")
@@ -468,9 +469,9 @@ script = ExtResource("2_ix4ho")
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_hfo4h")
-animation = &"goblin_idle_front"
-frame = 4
-frame_progress = 0.86006
+animation = &"goblin_attack_side"
+frame = 0
+frame_progress = 0.0
 flip_h = false
 
 [node name="CollisionShape2D" parent="enemy_hitbox" index="0"]
@@ -482,3 +483,6 @@ offset_left = -1.19209e-07
 offset_top = -19.0
 offset_right = 100.0
 offset_bottom = 8.0
+
+[node name="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("4_dxn5i")

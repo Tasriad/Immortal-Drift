@@ -1,7 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://nf2ws1u6hmhv"]
+[gd_scene load_steps=58 format=3 uid="uid://nf2ws1u6hmhv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_v4ybe"]
 [ext_resource type="Texture2D" uid="uid://cmaodial4qe24" path="res://arts/characters/players/player.png" id="2_5qc54"]
+[ext_resource type="AudioStream" uid="uid://t3glfj5acba6" path="res://music/sword horizontal swish.mp3" id="3_aar4t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmw8k"]
 radius = 12.8062
@@ -146,19 +147,19 @@ region = Rect2(192, 144, 48, 48)
 atlas = ExtResource("2_5qc54")
 region = Rect2(240, 144, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eyg4m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqtun"]
 atlas = ExtResource("2_5qc54")
 region = Rect2(0, 336, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eno1w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_74xmh"]
 atlas = ExtResource("2_5qc54")
 region = Rect2(48, 336, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mplcs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qosfm"]
 atlas = ExtResource("2_5qc54")
 region = Rect2(96, 336, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cwebh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb4rj"]
 atlas = ExtResource("2_5qc54")
 region = Rect2(144, 336, 48, 48)
 
@@ -354,16 +355,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eyg4m")
+"texture": SubResource("AtlasTexture_mqtun")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eno1w")
+"texture": SubResource("AtlasTexture_74xmh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mplcs")
+"texture": SubResource("AtlasTexture_qosfm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cwebh")
+"texture": SubResource("AtlasTexture_kb4rj")
 }],
 "loop": true,
 "name": &"side_attack",
@@ -434,7 +435,8 @@ shape = SubResource("CircleShape2D_rmw8k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_v6gga")
-animation = &"back_attack"
+animation = &"side_attack"
+frame_progress = 0.72101
 offset = Vector2(0, -17)
 
 [node name="Player_hitbox" type="Area2D" parent="."]
@@ -469,6 +471,9 @@ metadata/_edit_use_anchors_ = true
 [node name="regen_time" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_aar4t")
 
 [connection signal="body_entered" from="Player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="Player_hitbox" to="." method="_on_player_hitbox_body_exited"]

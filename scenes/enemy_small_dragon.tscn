@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dn3qxba55v6oe"]
+[gd_scene load_steps=37 format=3 uid="uid://dn3qxba55v6oe"]
 
 [ext_resource type="PackedScene" uid="uid://bfp1xcdaowe3y" path="res://scenes/enemy_slime.tscn" id="1_2sxf3"]
 [ext_resource type="Texture2D" uid="uid://cfael16rx8ig5" path="res://arts/enemies/small_dragon/Attack1.png" id="2_27nvx"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dyqct3e8e6grv" path="res://arts/enemies/small_dragon/Walk2.png" id="14_mws8x"]
 [ext_resource type="Texture2D" uid="uid://4brm2suwpak7" path="res://arts/enemies/small_dragon/Walk3.png" id="15_53tg6"]
 [ext_resource type="Texture2D" uid="uid://buupgqw72sgb7" path="res://arts/enemies/small_dragon/Walk4.png" id="16_n4aaa"]
+[ext_resource type="AudioStream" uid="uid://byk2n2la2we1f" path="res://music/flame throw.mp3" id="18_yutkn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpd1t"]
 atlas = ExtResource("2_27nvx")
@@ -170,6 +171,9 @@ size = Vector2(51.5, 23)
 
 [node name="enemy_small_dragon" instance=ExtResource("1_2sxf3")]
 script = ExtResource("2_rdabi")
+speed = null
+slime_full_health = null
+slime_attack_damage = null
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)
@@ -195,5 +199,8 @@ offset_bottom = 10.0
 
 [node name="attack_cooldown_timer" parent="." index="6"]
 wait_time = 2.0
+
+[node name="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("18_yutkn")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_attack_animation_finished"]

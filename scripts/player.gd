@@ -1,8 +1,8 @@
 extends CharacterBody2D  # Extends the CharacterBody2D class, which provides 2D physics-based movement for the character
 var enemy_inattack_range=false
 var enemy_attack_cooldown=true
-@export var full_health = 75
-@export var regen_health = 10
+var full_health = 75
+var regen_health = 10
 var health=full_health
 var player_alive=true
 @export var speed = 50  # Constant variable to define movement speed
@@ -13,7 +13,7 @@ var is_under_attack = false  # Track whether the player is under attack
 var startx=584
 var starty=670
 
-@onready var hitsound=$AudioStreamPlayer as AudioStreamPlayer
+@onready var hitsound=$AudioStreamPlayer2D
 
 
 func _ready():

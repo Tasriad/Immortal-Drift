@@ -1,5 +1,6 @@
 extends "res://scripts/enemy_small_dragon.gd"  # Inherit from the base player script
 
+@onready var hitsound1=$AudioStreamPlayer2D
 func chase(delta):
 	# If the slime is not attacking, handle movement and chase animations
 	if not attacking:  
@@ -38,7 +39,8 @@ func attack_player():
 				$AnimatedSprite2D.play("goblin_attack_front")
 			else:  # Player is above the character
 				$AnimatedSprite2D.play("goblin_attack_back")
-			
+
+			hitsound1.play()  # Play the attack sound
 			# Deal damage to the player
 			global.active_player.take_damage(slime_attack_damage)
 

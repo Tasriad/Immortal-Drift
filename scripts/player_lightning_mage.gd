@@ -1,5 +1,5 @@
 extends "res://scripts/player_light_mage.gd"  # Inherit from the base player script
-
+@onready var hitsound1=$AudioStreamPlayer2D
 
 func _ready():
 	$AnimatedSprite2D.play("player_lightning_mage_idle")  # Default idle animation
@@ -73,7 +73,7 @@ func attack1():
 		$AnimatedSprite2D.play("player_lightning_mage_attack1")
 	elif dir == "up":
 		$AnimatedSprite2D.play("player_lightning_mage_attack1")
-
+	hitsound1.play()
 	$deal_attack_timer.start()  # Start the timer for dealing damage
 
 func attack2():
@@ -88,7 +88,7 @@ func attack2():
 		$AnimatedSprite2D.play("player_lightning_mage_attack2")
 	elif dir == "up":
 		$AnimatedSprite2D.play("player_lightning_mage_attack2")
-
+	hitsound1.play()
 	$deal_attack_timer.start()  # Start the timer for dealing damage
 
 func attack3():
@@ -103,7 +103,8 @@ func attack3():
 		$AnimatedSprite2D.play("player_lightning_mage_attack3")
 	elif dir == "up":
 		$AnimatedSprite2D.play("player_lightning_mage_attack3")
-
+	hitsound1.play()
+	$deal_attack_timer.start()  # Start the timer for dealing damage
 		
 func possess():
 	# This method is called when the ghost possesses this character

@@ -1,5 +1,7 @@
 extends "res://scripts/enemy_small_dragon.gd"  # Inherit from the base player script
 
+@onready var hitsound1=$AudioStreamPlayer2D
+@onready var hitsound2=$AudioStreamPlayer2D2
 # New variable to track which attack to use
 var attack_index = 0  # To track the current attack index
 
@@ -33,12 +35,15 @@ func attack_player():
                 0:
                     print("Attack 1")
                     $AnimatedSprite2D.play("gorgon_attack1")
+                    hitsound1.play()  # Play the attack sound
                 1:
                     print("Attack 2")
                     $AnimatedSprite2D.play("gorgon_attack2")
+                    hitsound1.play()  # Play the attack sound
                 2:
                     print("Attack 3")
                     $AnimatedSprite2D.play("gorgon_attack3")
+                    hitsound2.play()  # Play the attack sound
 
             # Deal damage to the player
             global.active_player.take_damage(slime_attack_damage)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh5eongec3pdv"
+path="res://.godot/imported/gorgon swish.mp3-6d08c9b65a573e3423f929bbef8511e5.mp3str"
+
+[deps]
+
+source_file="res://music/gorgon swish.mp3"
+dest_files=["res://.godot/imported/gorgon swish.mp3-6d08c9b65a573e3423f929bbef8511e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

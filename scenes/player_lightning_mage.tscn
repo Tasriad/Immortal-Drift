@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cyrpfrpbvh42o"]
+[gd_scene load_steps=61 format=3 uid="uid://cyrpfrpbvh42o"]
 
 [ext_resource type="PackedScene" uid="uid://br5o44u5olb08" path="res://scenes/player_light_mage.tscn" id="1_resj2"]
 [ext_resource type="Script" path="res://scripts/player_lightning_mage.gd" id="2_6355v"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3wes6imcncle" path="res://arts/characters/players/player lightning mage/Hurt.png" id="6_mkphx"]
 [ext_resource type="Texture2D" uid="uid://b7quta1e5wrmm" path="res://arts/characters/players/player lightning mage/Run.png" id="7_xcuhe"]
 [ext_resource type="Texture2D" uid="uid://bxeuakp84sncb" path="res://arts/characters/players/player lightning mage/Idle.png" id="8_gpr0f"]
+[ext_resource type="AudioStream" uid="uid://d65b2rns6nju" path="res://music/ligtning sword.mp3" id="10_3nt1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydq8u"]
 atlas = ExtResource("2_txmvq")
@@ -397,4 +398,9 @@ script = ExtResource("2_6355v")
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(4, -13)
 sprite_frames = SubResource("SpriteFrames_3e2as")
-animation = &"player_lightning_mage_attack1"
+animation = &"player_lightning_mage_attack3"
+frame = 0
+frame_progress = 0.0
+
+[node name="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("10_3nt1y")

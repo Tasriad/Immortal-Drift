@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dqd3lnlmq3lqb"]
+[gd_scene load_steps=74 format=3 uid="uid://dqd3lnlmq3lqb"]
 
 [ext_resource type="PackedScene" uid="uid://bfp1xcdaowe3y" path="res://scenes/enemy_slime.tscn" id="1_36omv"]
 [ext_resource type="Script" path="res://scripts/boss_gorgon.gd" id="2_10kal"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://sfikry181rbq" path="res://arts/bosses/Gorgon/Idle.png" id="8_c2u0m"]
 [ext_resource type="Texture2D" uid="uid://db20t7qisdjlh" path="res://arts/bosses/Gorgon/Run.png" id="9_x4ei2"]
 [ext_resource type="Texture2D" uid="uid://cidk7jqn3x48a" path="res://arts/bosses/Gorgon/Idle_2.png" id="10_fhjh6"]
+[ext_resource type="AudioStream" uid="uid://bh5eongec3pdv" path="res://music/gorgon swish.mp3" id="11_jk3v3"]
+[ext_resource type="AudioStream" uid="uid://cvf06sq2qttly" path="res://music/medusa head.mp3" id="12_ht3ci"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1h0s"]
 atlas = ExtResource("3_23s5f")
@@ -469,7 +471,7 @@ script = ExtResource("2_10kal")
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_vxu1q")
-animation = &"gorgon_idle"
+animation = &"gorgon_attack3"
 flip_h = true
 
 [node name="CollisionShape2D" parent="detection_area" index="0"]
@@ -489,3 +491,9 @@ offset_left = 21.0
 offset_top = -18.0
 offset_right = 121.0
 offset_bottom = 9.0
+
+[node name="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("11_jk3v3")
+
+[node name="AudioStreamPlayer2D2" parent="." index="8"]
+stream = ExtResource("12_ht3ci")

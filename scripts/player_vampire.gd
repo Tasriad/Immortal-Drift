@@ -1,5 +1,5 @@
 extends "res://scripts/player_light_mage.gd"  # Inherit from the base player script
-
+@onready var hitsound1=$AudioStreamPlayer2D
 
 func _ready():
 	$AnimatedSprite2D.play("vampire_idle")  # Default idle animation
@@ -51,6 +51,7 @@ func attack():
 				attack3()
 
 		# Cycle through the attack types after each attack
+		hitsound1.play()
 		attack_type = (attack_type + 1) % 3
 		print(attack_type)
 	# When attack is released
